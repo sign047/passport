@@ -1,0 +1,32 @@
+<!--pages/baseApplication/baseApplication.wxml-->
+<view class="align base-wrapper">
+    <text class="title">申请表</text>
+    <view class="flex  visa-data between" catchtap="toChild" data-name="baseInfo"  hover-class="none">
+        <view class="align">
+            <text class="medium">基本信息</text>
+            <text class='visa-num'>{{fileName ? fileName : '请填写基本信息'}}</text>
+        </view>
+        <text class=" {{application.baseInfo ? 'ok' : 'not'}}">{{application.basicStatus ? '更改' : '待完善'}}</text>
+    </view>
+    <view class="flex  visa-data between" catchtap="toChild" data-name="basePassport" hover-class="none" >
+        <view class="align">
+            <text class="medium">护照信息</text>
+            <text class='visa-num'>护照{{huNum}}</text>
+        </view>
+        <text class=" {{application.basePassport ? 'ok' : 'not'}}">{{application.humessageStatus ? '更改' : '待完善'}}</text>
+    </view>
+    <view class="flex  visa-data between" catchtap="toChild" data-name="baseHome"  hover-class="none">
+        <view class="align">
+            <text class="medium">家庭与职业信息</text>
+            <text class='visa-num'>职业状况</text>
+        </view>
+        <text class=" {{application.baseHome ? 'ok' : 'not'}}">{{application.familyStatus ? '更改' : '待完善'}}</text>
+    </view>
+    <view class="flex  visa-data between" hover-class="none" data-name="baseEmergency" catchtap="toChild">
+        <view class="align">
+            <text class="medium">紧急联系人</text>
+            <text class='visa-num'>国内亲属</text>
+        </view>
+        <text class=" {{application.baseEmergency ? 'ok' : 'not'}}">{{application.contactStatus ? '更改' : '待完善'}}</text>
+    </view>
+</view>

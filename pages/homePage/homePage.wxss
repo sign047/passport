@@ -1,0 +1,56 @@
+/* pages/homePage/homePage.wxss */
+@import "/template/welCropper/welCropper.wxss";
+.add-home{
+  margin:30rpx 0;
+  display:block;
+  width:656rpx;
+  height:456rpx;
+}
+.id-wraper{
+  width:602rpx;
+  margin:100rpx 0 80rpx;
+}
+.id-tit{
+  color:#333;
+  font-size:28rpx;
+  line-height:50rpx;
+}
+.id-desc{
+  color:#999;
+  font-size:28rpx;
+  line-height:50rpx;
+}
+
+.more-btn{
+  border-radius:12rpx;
+  font-size:28rpx;
+  line-height:40rpx;
+  padding:20rpx 86rpx;
+  border:1rpx solid #000;
+  margin-top:50rpx;
+}
+
+.home-page{
+  margin-top:52rpx;
+  border-radius:6rpx;
+  overflow: hidden;
+}
+.add-photo{
+  border-radius:16rpx;
+  border:1rpx dashed #e1e1e1;
+  height:174rpx;
+  width:600rpx;
+  margin-top:58rpx;
+}
+.camera-img{
+  display:block;
+  height:52rpx;
+  width:58rpx;
+}
+.front,.back{
+  width:656rpx;
+  height:456rpx;
+  display:block;
+  border-radius:6rpx;
+  margin-top:16rpx;
+}

@@ -1,0 +1,76 @@
+<import src="../../template/welCropper/welCropper.wxml" />
+<view class="visaFiles">
+    <view class="flex around navbox">
+        <view class="navbar {{item.isOk?'active':''}}"
+              wx:for="{{statusArr}}"
+              wx:for-index="idx"
+              wx:key="idx"
+              catchtap="changeTab"
+              data-id="{{idx}}"
+              wx:for-item="item">
+            <text class="txt">{{item.txt}}</text>
+            <text class="round" wx:if="{{idx < 2}}">>></text>
+        </view>
+    </view>
+    <template  is="welCropper" data="{{data:cropperData,load,showImage,showIndex,showPre,cropperMovableItems,pageType,saveImage,cropperChangableData}}"></template>
+    <view hidden="{{!statusArr[0].isOk}}" class="vertical">
+        <view class="vertical picbox" catchtap="{{showImage[0]? 'showPreview':''}}" data-index="0">
+            <image wx:if="{{!showImage[0]}}" mode="aspectFit" catchtap="showAction" data-index="0" class="passport-pic" src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171222113903.png"></image>
+            <view class="flex camerabox" hidden="{{!showImage[0]}}" data-index="0" >
+                <image mode="aspectFill" lazy-load="true" class="camera-icon" src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171222172351.png"></image>
+                <text class="uploadR">上传成功,可点击查看</text>
+            </view>
+            <image mode="aspectFill" wx:if="{{showImage[0]}}" src="{{showImage[0]}}" class="passport-pic"></image>
+        </view>
+    </view>
+    <view class="base-list vertical" hidden="{{!statusArr[1].isOk}}">
+        <view class="base">
+            <navigator  class="flexbox base-cont" url="/pages/idCard/idCard" hover-class="none">
+                <image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171215140145.png"></image>
+                 <text class="base-name">身份证</text>
+                <icon class="weui-icon-checkbox_circle" type="success" color="{{currentFile.idCardStatus  ? '#2091fb': '#f4f4f4'}}"  size="28" ></icon>
+            </navigator >
+        </view>
+        <view class="base ">
+            <navigator class="flexbox base-cont base-home" url="/pages/homePage/homePage" hover-class="none">
+                <image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171215140154.png"></image>
+                <text class="base-name">户口本</text>
+                <icon class="weui-icon-checkbox_circle" type="success" color="{{currentFile.accountBookStatus?'#2091fb': '#f4f4f4'}}"  size="28" ></icon>
+            </navigator>
+        </view>
+        <view class="base ">
+            <navigator class="flexbox base-cont base-pic" url="/pages/crop/crop" hover-class="none">
+                <image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171215140200.png"></image>
+                <text class="base-name">照片</text>
+                <icon class="weui-icon-checkbox_circle" type="success" color="{{currentFile.headStatus?'#2091fb': '#f4f4f4'}}"  size="28" ></icon>
+            </navigator>
+        </view>
+        <view class="base">
+            <navigator class="flexbox base-cont base-application" url="/pages/baseApplication/baseApplication" hover-class="none">
+                <image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171215140204.png"></image>
+                <text class="base-name">申请表</text>
+                <icon class="weui-icon-checkbox_circle" type="success" color="{{currentFile.applicationStatus?'#2091fb': '#f4f4f4'}}"  size="28" ></icon>
+            </navigator>
+        </view>
+    </view>
+
+    <view class="base-list vertical optional" hidden="{{!statusArr[2].isOk}}">
+        <view class="base">
+            <navigator class="flexbox base-cont" url="/pages/assets/assets" hover-class="none">
+                <image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171215173623.png"></image>
+                <text class="base-name">固定资产</text>
+                <icon class="weui-icon-checkbox_circle" type="success" color="{{currentFile.propertyStatus ? '#2091fb':'#f4f4f4'}}"  size="28" ></icon>
+            </navigator>
+        </view>
+        <view class="base ">
+            <navigator class="flexbox base-cont base-home" url="/pages/Marriage/Marriage" hover-class="none">
+                <image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171215173615.png"></image>
+                <text class="base-name">婚姻状况</text>
+                <icon class="weui-icon-checkbox_circle" type="success" color="{{currentFile.marriageStatus?'#2091fb':'#f4f4f4'}}"  size="28" ></icon>
+            </navigator>
+        </view>
+        <navigator hidden="{{currentFile.step == 3}}" open-type="switchTab"  url="/pages/addVisaData/addVisaData"  hover-class="none">
+            <button class="pic-confirm">跳过</button>
+        </navigator>
+    </view>
+</view>

@@ -1,0 +1,59 @@
+/* pages/dataProgress/dataProgress.wxss */
+.load-wrapper{
+  padding-left:34rpx
+}
+.h3{
+  font-size:40rpx;
+  line-height:56rpx;
+  margin-top:62rpx;
+
+}
+.l-txt{
+
+  font-size:28rpx;
+  line-height:40rpx;
+}
+.circle{
+  border-radius:50%;
+  width:40rpx;
+  height:40rpx;
+  border:3rpx solid #d4d4d4;
+  position:relative;
+  margin-right:28rpx;
+}
+.circle.active{
+  border:3rpx solid #666;
+}
+.weui-icon-checkbox_circle{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate3d(-50%,-50%,0);
+}
+
+.radio{
+  margin-top:32rpx;
+  color:#d4d4d4;
+
+}
+.radio.active{
+  color:#666;
+}
+.m30{
+  margin-top:60rpx;
+}
+.border{
+  border-top:1rpx solid #dadada;
+  padding-bottom:60rpx;
+}
+.border:nth-child(1){
+  border:none;
+}
+.pic-confirm2{
+  width:214rpx;
+  font-size:30rpx;
+  border-radius:40rpx;
+  height:80rpx;
+  line-height:80rpx;
+  bottom:30rpx;
+}

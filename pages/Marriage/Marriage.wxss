@@ -1,0 +1,43 @@
+/* pages/Marriage/Marriage.wxss */
+@import "/template/welCropper/welCropper.wxss";
+.add-home{
+  margin-top:30rpx;
+  display:block;
+  width:656rpx;
+  height:456rpx;
+}
+.ma-tip{
+  color:#4a4a4a;
+  font-size:28rpx;
+  line-height:34rpx;
+  text-align:center;
+}
+.add-photo{
+  border-radius:16rpx;
+  border:1rpx dashed #e1e1e1;
+  height:174rpx;
+  width:600rpx;
+  margin-top:58rpx;
+}
+.camera-img{
+  display:block;
+  height:52rpx;
+  width:58rpx;
+}
+.more-btn{
+  border-radius:12rpx;
+  font-size:28rpx;
+  line-height:40rpx;
+  padding:20rpx 86rpx;
+  border:1rpx solid #000;
+  margin-top:50rpx;
+  margin-bottom:200rpx;
+}
+.ma-tip{
+  margin-top:20rpx;
+}
+.home-page{
+  margin-top:66rpx;
+  border-radius:6rpx;
+  overflow: hidden;
+}

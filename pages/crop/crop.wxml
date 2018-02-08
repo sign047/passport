@@ -1,0 +1,16 @@
+<!--pages/crop/crop.wxml-->
+<import src="../../template/welCropper/welCropper.wxml" />
+<view class="align justify-normal photo">
+<template  is="welCropper" data="{{data:cropperData,load,showImage,showPre,cropperMovableItems,showIndex,pageType,saveImage,cropperChangableData}}"></template>
+    <view style="position:relative" data-index="0" catchtap="{{showImage[0]?'showPreview':'showAction'}}">
+        <image   class="add-home {{showImage[0]?'shadow':''}}" src="{{showImage[0]?showImage[0]:'http://7xl2r0.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171222141736.png'}}"></image>
+        <image mode="scaleToFill" wx-if="{{showImage[0]}}" src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/head-camera.png" class="head-pic"></image>
+    </view>
+
+    <view class="vertical align-normal id-wraper">
+        <text class="id-tit">资料要求</text>
+        <text class="id-desc">·白底，请用纯白墙做背景，不穿白色衣服</text>
+        <text class="id-desc">·拍摄时注意光线均匀，不要佩戴眼镜，露出双耳</text>
+    </view>
+<view class="pic-confirm" hidden="{{showImage.length == 0}}" catchtap="savePic">保存</view>
+</view>

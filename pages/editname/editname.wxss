@@ -1,0 +1,7 @@
+@import "../../template/form/form.wxss";
+.saveBtn{
+  position:absolute;
+  left:50%;
+  top:35%;
+  transform:translate3d(-50%,0,0);
+}

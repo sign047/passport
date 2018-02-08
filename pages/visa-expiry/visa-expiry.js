@@ -1,0 +1,125 @@
+var util=require('../../utils/util');
+var app=getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+      visaList:[],
+      hidden:false,
+      inputTxt:'',
+      showTopTips:false,
+      id:''
+  },
+  addVisa:function(){
+      this.setData({
+          hidden:false
+      })
+  },
+  showTopTips: function(errmsg){
+    var that = this;
+
+    this.setData({
+        showTopTips: true,
+        errTxt:errmsg
+    });
+    clearTimeout(that.timer);
+    that.timer=setTimeout(function(){
+        that.setData({
+            showTopTips: false
+        });
+    }, 1000);
+  },
+  save:function(){
+     var data=app.globalData;
+     var authToken=data.authToken;
+     var id=this.data.id;
+     var url=data.huoLiBase+'saveVisa';
+     var visaList=this.data.visaList;
+     if(!util.checkVisa(visaList)) return;
+     util.http(url,{huId:id,authToken:authToken,isShare:0,visaList:visaList},function(data){
+         wx.redirectTo({
+             url: '../passport/passport?visaHidden=false&id='+id
+         })
+     })
+  },
+  bindStartChange: function(e) {
+    var that=this;
+    var index= e.currentTarget.dataset.index;
+    var value=e.detail.value;
+    var item=this.data.visaList[index];
+    if( util.compareTime('huCreateTime',value,that,item.expireTime)){
+        this.setValue('createTime',value,index);
+    }
+  },
+  setValue:function(name,value,index){
+     var list=this.data.visaList;
+         list[index][name]=value;
+         this.setData({
+             visaList:list
+         })
+  },
+  bindEndChange: function(e) {
+      var that=this;
+      var value=e.detail.value;
+      var index= e.currentTarget.dataset.index;
+      var item=this.data.visaList[index];
+      if( util.compareTime('huExpireTime',value,that,item.createTime)){
+          this.setValue('expireTime',value,index);
+      }
+
+  },
+  confirm:function(e){
+      var value=e.detail.value;
+      var list=this.data.visaList;
+      var visa={
+          visaName:value,
+          expireTime:'请选择签证到期时间',
+          createTime:'请选择签证签发时间'
+      };
+      var classItem={
+          red:false,
+          blue:false
+      };
+      list.push(visa);
+      this.setData({
+          hidden:true,
+          visaList:list,
+          inputTxt:''
+      });
+  },
+  addVisaList:function(arr){
+    var nameArr=[];
+    for(var i=0,len=arr.length;i<len;i++){
+        var visa={
+            visaName:arr[i],
+            expireTime:'请选择签证到期时间',
+            createTime:'请选择签证签发时间'
+        };
+        nameArr.push(visa);
+    }
+    return nameArr;
+  },
+  onLoad: function (options) {
+    var hidden= options.hidden === 'false'? false: true;
+    var id=options.id;
+    if(options.checkArr){
+        var checkArr=JSON.parse(options.checkArr);
+        var visaList=this.addVisaList(checkArr);
+        this.setData({
+            hidden:hidden,
+            visaList:visaList,
+            id:id
+        })
+    }
+    this.setData({
+          hidden:hidden,
+          id:id
+    });
+
+
+  }
+
+
+});

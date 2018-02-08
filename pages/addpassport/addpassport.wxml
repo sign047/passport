@@ -1,0 +1,112 @@
+
+<view class="addport">
+  <text class="page-tit" wx:if="{{!isEdit}}">护照信息</text>
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errTxt}}</view>
+  <view class="align editform">
+    <view class="input-wrapper">
+      <text class="base-tit">护照号码</text><input
+            bindinput="bindNum"
+            class="box show-info"
+            placeholder-style="color:#c2c2c2"
+            data-kind="1"
+            value="{{passport.huNumber}}"
+            placeholder="请输入你的护照号码" />
+    </view>
+    <view class="input-wrapper">
+      <text class="base-tit">中文姓名</text>
+      <input bindinput="bindName"
+            placeholder-style="color:#c2c2c2"
+            class="box show-info"
+            value="{{passport.huName}}"
+            placeholder="请输入你的中文姓名" />
+    </view>
+    <view class="input-wrapper">
+      <text class="base-tit">姓名拼音</text>
+      <input
+            bindinput="bindNum"
+            placeholder-style="color:#c2c2c2"
+            class="box show-info"
+            data-kind="2"
+            value="{{passport.huPinYin}}"
+            placeholder="请输入你的姓名拼音"  />
+    </view>
+    <view class="input-wrapper">
+      <text class="base-tit">性别</text>
+      <picker bindchange="bindSexChange" value="{{sexIndex}}" range="{{sex}}" class="box show-info">
+        <view class="flexbox">
+          <text class="show-info info-box "> {{sex[sexIndex]}}</text>
+          <view class="triangle_border_down"></view>
+        </view>
+      </picker>
+    </view>
+    <view class="input-wrapper">
+      <text class="base-tit">出生年月</text>
+      <picker mode="date" class="box show-info"
+              value="{{sendPass.huBoth}}"
+              start="1900-09-01"
+              end="2050-09-01"
+              data-kind='1'
+              bindchange="bindDateChange" >
+        <view class="flexbox">
+          <text class="show-info info-box {{huBoth ==='请选择你的出生年月'? 'place':''}}">{{huBoth}}</text>
+          <view class="triangle_border_down"></view>
+        </view>
+      </picker>
+    </view>
+    <view class="input-wrapper">
+      <text class="base-tit">出生地</text>
+      <picker class="box"
+              range="{{huBirthPlace}}"
+              data-name="huBirthPlace"
+              value="{{sendPass.huBirthPlace}}"
+              bindchange="changePlace" >
+        <view class="flexbox">
+          <text class="show-info info-box {{passport.huBirthPlace ==='请选择你的出生地'? 'place':''}}">{{passport.huBirthPlace}}</text>
+          <view class="triangle_border_down"></view>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="align editform">
+    <view class="input-wrapper">
+      <text class="base-tit">签发地</text><input class="box show-info"
+                                           placeholder-style="color:#c2c2c2"
+                                           bindinput="bindCity"
+                                           value="{{sendPass.huIssuePlace}}"
+                                           placeholder="请输入你的护照签发地" />
+    </view>
+    <view class="input-wrapper">
+      <text class="base-tit">签发日期</text>
+      <picker mode="date"
+              class="box show-info"
+              value="{{sendPass.huCreateTime}}"
+              start="1980-09-01"
+              data-kind='2'
+              end="2050-09-01"
+              bindchange="bindDateChange">
+        <view class="flexbox ">
+          <text class="show-info info-box {{huCreateTime ==='请选择你的护照签发日期'? 'place':''}}">{{huCreateTime}}</text>
+          <view class="triangle_border_down"></view>
+        </view>
+      </picker>
+    </view>
+    <view class="input-wrapper">
+      <text class="base-tit">有效期至</text>
+      <picker mode="date"
+              class="box show-info"
+              value="{{sendPass.huExpireTime}}"
+              start="1980-09-01"
+              data-kind='3'
+              end="2050-09-01"
+              bindchange="bindDateChange">
+        <view class="flexbox">
+          <text class="show-info info-box {{huExpireTime ==='请选择你的护照有效期'? 'place':''}}">{{huExpireTime}}</text>
+          <view class="triangle_border_down"></view>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <text class="saveBtn1 medium" catchtap="savePass" wx:if="{{!isScanning && !isEdit}}" >保存</text>
+  <text class="saveBtn medium" catchtap="saveScan" wx:if="{{isScanning}}">信息正确 保存上传</text>
+  <text class="saveBtn1 medium" catchtap="saveEdit" wx:if="{{isEdit}}">保存</text>
+</view>

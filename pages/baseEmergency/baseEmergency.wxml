@@ -1,0 +1,80 @@
+<!--pages/baseEmergency/baseEmergency.wxml-->
+
+<view>
+    <text class="page-tit">紧急联系人</text>
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTip}}">{{errTxt}}</view>
+    <view class="align editform">
+        <view class=" input-wrapper">
+            <text class="base-tit">姓名</text>
+            <input
+                    bindblur="statusChange"
+                    placeholder-style="color:#c2c2c2"
+                    class="box show-info"
+                    data-name="name"
+                    value="{{baseEmergency.name}}"
+                    placeholder="请填写姓名"  />
+        </view>
+        <view class=" input-wrapper">
+            <text class="base-tit">手机号码</text>
+            <input
+                    bindblur="statusChange"
+                    placeholder-style="color:#c2c2c2"
+                    class="box show-info"
+                    data-name="phone"
+                    type="number"
+                    value="{{baseEmergency.phone}}"
+                    placeholder="儿童请填写父母手机号码"  />
+        </view>
+        <view class="align input-wrapper">
+            <view class="flexbox">
+                <text class="base-tit">是否一起居住</text>
+                <view class="triangle_border_down"></view>
+            </view>
+            <picker bindchange="bindSameHouse" data-name="sameHouse" value="{{baseEmergency.sameHouse}}" range="{{sameHouse}}" class="box">
+                <view class="flexbox">
+                    <text class="show-info">{{baseEmergency.sameHouse}}</text>
+                </view>
+            </picker>
+        </view>
+        <block wx:if="{{baseEmergency.sameHouse == '否'}}">
+            <view class="flexbox input-wrapper border-none">
+                <text class="base-tit indent little">居住地址</text>
+                <picker bindchange="statusChange" data-name="currentAddress" mode ="region" value="{{baseEmergency.currentAddress}}"  class="box">
+                    <view class="flexbox">
+                        <text class="show-info info-box ">{{baseEmergency.currentAddress[0]}} {{baseEmergency.currentAddress[1]}} {{baseEmergency.currentAddress[2]}}</text>
+                        <view class="triangle_border_down"></view>
+                    </view>
+                </picker>
+            </view>
+            <view class="flexbox input-wrapper border-none">
+                <text class="base-tit indent little">详细地址</text>
+                <view class="flexbox box input-info">
+                    <input bindblur="statusChange"
+                           placeholder-style="color:#c2c2c2"
+                           data-name="detailedAddress"
+                           class="box show-info"
+                           value="{{baseEmergency.detailedAddress}}"
+                           placeholder="精确到门牌号" />
+                </view>
+            </view>
+        </block>
+        <view class=" input-wrapper ">
+            <text class="base-tit">关系</text>
+            <input bindblur="statusChange"
+                   class="box show-info"
+                   placeholder-style="color:#c2c2c2"
+                   data-name="relationship"
+                   value="{{baseEmergency.relationship}}"
+                   placeholder="仅允许填亲属, 如父子" />
+            <!--<picker bindchange="bindSexChange" mode="range" value="{{baseEmergency.relationship}}"  class="box">-->
+                <!--<view class="flexbox">-->
+
+                    <!--<text class="show-info info-box ">仅允许填亲属, 如父子</text>-->
+                    <!--<view class="triangle_border_down"></view>-->
+                <!--</view>-->
+            <!--</picker>-->
+        </view>
+    </view>
+    <view class="base-btn" catchtap="saveInfo">保存</view>
+</view>
+

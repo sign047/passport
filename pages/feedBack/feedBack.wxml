@@ -1,0 +1,11 @@
+<view class="vertical">
+    <textarea class="back-txt"
+              value="{{message}}"
+              placeholder="请输入您的联系方式和宝贵意见"
+              bindinput="saveMsg"
+              placeholder-style="color:#d4d4d4" />
+    <view class="btnbox">
+        <text class="btn medium blue-btn" catchtap="saveSuggestion">提交</text>
+        <view class="mask" wx:if="{{!message}}">提交</view>
+    </view>
+</view>

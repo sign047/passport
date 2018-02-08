@@ -1,0 +1,54 @@
+/* pages/pic/pic.wxss */
+
+page{
+  background:#fff;
+}
+.camera{
+  height:300rpx;
+  width:620rpx;
+  position:relative;
+  margin-top:84rpx;
+  box-shadow: 0 4rpx 40rpx 12rpx rgba(0,0,0,0.04);
+  background:#fff;
+}
+.after{
+  background:#afdeff;
+  content:'';
+  width:100%;
+  display:block;
+  height:12rpx;
+  position:absolute;
+  left:0;
+  bottom:0;
+}
+.camera image{
+  display:block;
+  width:68rpx;
+  height:68rpx;
+  position:absolute;
+  left:50%;
+  top:94rpx;
+  transform:translate3d(-50%,0,0);
+}
+.camera text{
+  display:block;
+  position:absolute;
+  width:100%;
+  text-align:center;
+  left:50%;
+  bottom:68rpx;
+  transform:translatex(-50%);
+  color:#000;
+  font-size:30rpx;
+  line-height:40rpx;
+}
+.card{
+  width:100%;
+  display:block;
+  height:100%;
+}
+.camera .pic-camera{
+  display:block;
+  width:84rpx;
+  height:64rpx;
+}

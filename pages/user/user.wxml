@@ -1,0 +1,21 @@
+<view class="user-wrapper">
+    <view class="avatar flex between align-normal">
+     <text class="nickName medium">{{nickName}}</text>
+    <image src="{{avatarUrl}}"></image>
+    </view>
+    <view class="flexbox user" catchtap="toPhone">
+        <text class="medium">手机号</text>
+        <view class="flex right-txt between">
+            <text class="phone-txt">{{phoneTxt}}</text>
+        </view>
+    </view>
+    <view class="flexbox between user" catchtap="toFeedBack">
+        <text class="medium">意见反馈</text>
+    </view>
+     <view class="flexbox user" catchtap="toVisaFiles">
+        <text class='medium red-tip'>签证资料夹</text>
+         <view class="flexbox">
+            <text class="phone-txt ">一次上传，永久存档，再也不用重复整理</text>
+        </view>
+    </view>
+</view>

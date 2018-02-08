@@ -1,0 +1,170 @@
+<!--pages/baseInfo/baseInfo.wxml-->
+
+<view class="addport">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTip}}">{{errTxt}}</view>
+    <text class="page-tit">基本信息</text>
+    <view class="align editform">
+        <view class="input-wrapper">
+            <text class="base-tit">姓（中文）</text>
+            <input bindblur="txtToPy"
+                    class="box show-info"
+                    placeholder-style="color:#c2c2c2"
+                    data-name="lastName"
+                    data-kind="1"
+                    value="{{baseInfo.lastName}}"
+                    placeholder="请输入你的姓氏" />
+        </view>
+        <view class="input-wrapper">
+            <text class="base-tit">名（中文）</text>
+            <input bindblur="txtToPy"
+                   placeholder-style="color:#c2c2c2"
+                   class="box show-info"
+                   data-name="firstName"
+                   value="{{baseInfo.firstName}}"
+                   placeholder="请输入你的名字" />
+        </view>
+        <view class="input-wrapper">
+            <text class="base-tit">姓（拼音）</text>
+            <input bindblur = "inputChange"
+                placeholder-style="color:#c2c2c2"
+                data-name="lastNamePY"
+                class="box show-info"
+                data-kind="2"
+                value="{{baseInfo.lastNamePY}}"
+                placeholder="请输入你的姓名拼音"  />
+        </view>
+        <view class="input-wrapper">
+            <text class="base-tit">名（拼音）</text>
+            <input bindblur = "inputChange"
+                placeholder-style="color:#c2c2c2"
+                class="box show-info"
+                data-name="firstNamePY"
+                data-kind="2"
+                value="{{baseInfo.firstNamePY}}"
+                placeholder="请输入你的姓名拼音"  />
+        </view>
+        <view class="input-wrapper">
+            <view class="flexbox">
+                <text class="base-tit">曾用名</text>
+                <view class="triangle_border_down"></view>
+            </view>
+
+            <picker bindchange="statusChange"
+                    data-name="everName"
+                    class="show-info"
+                    value="{{baseInfo.everName}}"
+                    range="{{everName}}" >
+                <text class="show-info">{{baseInfo.everName}}</text>
+            </picker>
+        </view>
+        <block wx:if="{{baseInfo.everName == '有'}}">
+            <view class="flexbox input-wrapper border-none">
+                <text class="base-tit indent little">曾用姓(中)</text>
+                <view class=" input-info">
+                    <input
+                            bindblur="txtToPy"
+                            data-name="lastNamed"
+                            placeholder-style="color:#c2c2c2"
+                            class="box show-info"
+                            data-kind="2"
+                            value="{{baseInfo.lastNamed}}"
+                            placeholder=""  />
+                </view>
+            </view>
+            <view class="flexbox input-wrapper border-none">
+                <text class="base-tit indent little">曾用名(中)</text>
+                <view class="input-info">
+                    <input
+                            bindblur="txtToPy"
+                            data-name="firstNamed"
+                            placeholder-style="color:#c2c2c2"
+                            class="box show-info"
+                            value="{{baseInfo.firstNamed}}"
+                            placeholder=""  />
+                </view>
+            </view>
+            <view class="flexbox input-wrapper border-none">
+                <text class="base-tit indent little">曾用姓(拼)</text>
+                <view class="input-info">
+                    <input
+                        bindblur = "inputChange"
+                        data-name="lastNamPYed"
+                        placeholder-style="color:#c2c2c2"
+                        class="box show-info"
+                        value="{{baseInfo.lastNamPYed}}"
+                        placeholder=""  />
+                </view>
+            </view>
+            <view class="flexbox input-wrapper border-none">
+                <text class="base-tit indent little">曾用姓(拼)</text>
+                <view class="input-info">
+                    <input
+                            bindblur = "inputChange"
+                            data-name="firstNamePYed"
+                            placeholder-style="color:#c2c2c2"
+                            class="box show-info"
+                            data-kind="2"
+                            value="{{baseInfo.firstNamePYed}}"
+                            placeholder=""  />
+                </view>
+            </view>
+        </block>
+        <view class="input-wrapper">
+            <view class="flexbox">
+                <text class="base-tit">性别</text>
+                <view class="triangle_border_down"></view>
+            </view>
+            <picker bindchange="statusChange"
+                    data-name="sex"
+                    value="{{baseInfo.sex}}"
+                    range="{{sex}}"
+                    class="show-info">
+                    <text class="show-info">{{baseInfo.sex}}</text>
+            </picker>
+        </view>
+        <view class="input-wrapper">
+            <view class="flexbox">
+                <text class="base-tit">出生日期</text>
+                <view class="triangle_border_down"></view>
+            </view>
+            <picker mode="date" class="box"
+                    value="{{baseInfo.bornDate}}"
+                    start="1900-09-01"
+                    data-name="bornDate"
+                    end="2050-09-01"
+                    data-kind='1'
+                    class="show-info"
+                    bindchange="bindDataChage"  >
+                    <text class="show-info {{ baseInfo.bornDate ? 'grey':''}}">{{baseInfo.bornDate ? baseInfo.bornDate:'请选择你的出生年月'}}</text>
+            </picker>
+        </view>
+        <view class="input-wrapper">
+            <view class="flexbox">
+                <text class="base-tit">出生省份</text>
+                <view class="triangle_border_down"></view>
+            </view>
+            <picker data-name="bornProvince"
+                    range="{{bornProvince}}"
+                    bindchange="statusChange"
+                    value="{{baseInfo.bornProvince}}"
+                    class="">
+                <text class="show-info">{{baseInfo.bornProvince}}</text>
+            </picker>
+        </view>
+        <view class="input-wrapper">
+            <view class="flexbox">
+                <text class="base-tit">婚姻状况</text>
+                <view class="triangle_border_down"></view>
+            </view>
+            <picker range="{{maritalStatus}}"
+                    class="show-info"
+                    value="{{baseInfo.maritalStatus}}"
+                    data-kind='2'
+                    data-name="maritalStatus"
+                    bindchange="statusChange" >
+                    <text class="show-info">{{baseInfo.maritalStatus}}</text>
+            </picker>
+        </view>
+    </view>
+    <button catchtap="saveInfo" class="base-btn">保存</button>
+</view>

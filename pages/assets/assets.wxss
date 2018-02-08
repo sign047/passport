@@ -1,0 +1,41 @@
+/* pages/assets/assets.wxss */
+@import "/template/welCropper/welCropper.wxss";
+.add-home{
+  margin:30rpx 0;
+  display:block;
+  width:656rpx;
+  height:456rpx;
+}
+.id-wraper{
+  width:602rpx;
+  margin-top:182rpx;
+}
+.id-tit{
+  color:#333;
+  font-size:28rpx;
+  line-height:50rpx;
+}
+.id-desc{
+  color:#999;
+  font-size:28rpx;
+  line-height:50rpx;
+}
+.more-btn{
+  border-radius:12rpx;
+  font-size:28rpx;
+  line-height:40rpx;
+  padding:20rpx 86rpx;
+  border:1rpx solid #000;
+  margin-top:50rpx;
+}
+.home-page{
+  margin-top:66rpx;
+  border-radius:6rpx;
+  overflow: hidden;
+}
+.front,.back{
+  width:656rpx;
+  height:456rpx;
+  display:block;
+  border-radius:6rpx;
+}

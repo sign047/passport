@@ -1,0 +1,15 @@
+<import src="../../template/welCropper/welCropper.wxml" />
+<view class="vertical picbox justify-normal">
+<template  is="welCropper" data="{{data:cropperData,load,showImage,showPre,cropperMovableItems,pageType,saveImage,cropperChangableData}}"></template>
+<image class="demo" src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/example.png"></image>
+<view class="vertical justify-normal tips-box">
+    <text class="tips">*拍摄如图示的护照首页，请确保漏出四个角</text>
+    <text class="tips">*证件为有效证件</text>
+    <text class="tips">*扫描角度正对证件, 无倾斜、无抖动</text>
+    <text class="tips">*证件无反光且清晰 若灯光过暗，请打开闪光灯或至明亮的地方以便拍摄</text>
+    <text class="tips">*网络通畅</text>
+</view>
+
+<view class="medium next" catchtap="showAction" data-index="0">知道了</view>
+
+</view>

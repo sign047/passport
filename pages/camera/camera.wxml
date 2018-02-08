@@ -1,0 +1,18 @@
+<!-- camera.wxml -->
+<import src="../../template/welCropper/welCropper.wxml" />
+<view class="camera-box" wx:if="{{cropperData.hidden}}">
+     <view class="mask vertical justify-normal">
+       <text class="cameta-txt">请将带护照号的内页放入框内拍摄</text>
+    <camera style=" width: 600rpx; height: 372rpx;" device-position="back" flash="off" class="camera" binderror="error" >
+      <cover-image class="cover" src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/cameara-bg.png"></cover-image>
+    </camera>
+    <view class="Album align" catchtap='album'>
+      <image class="Album-icon" src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/%E7%9B%B8%E5%86%8C.png"></image>
+       <text class="Album-text">相册</text> 
+    </view>
+    <button  class="take-photo vertical" bindtap="takePhoto">
+      <image class="icon" src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/camera-icon.png"></image>
+    </button>
+     </view>
+</view>
+ <template  is="welCropper" data="{{data:cropperData,load,cropperMovableItems,pageType,saveImage,cropperChangableData}}"></template>

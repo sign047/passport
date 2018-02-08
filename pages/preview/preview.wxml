@@ -1,0 +1,5 @@
+<!--pages/preview/preview.wxml-->
+<import src="../../template/welCropper/welCropper.wxml" />
+<view>
+   <template  is="welCropper" data="{{data:cropperData,showImage,showIndex,showPre,load,cropperMovableItems,pageType,saveImage,cropperChangableData}}"></template>
+</view>

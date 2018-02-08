@@ -1,0 +1,20 @@
+<view class="vertical">
+    <view  class="camera">
+        <button class="btn-get-user-info"  bindgetuserinfo="onGotUserInfo" data-type="1" open-type="getUserInfo">授权</button>
+        <view class="card">
+            <image class="pic-camera" src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/pic-camera.png"></image>
+            <text>拍摄护照快速上传</text>
+            <view class="after"></view>
+        </view>
+
+    </view>
+    <view class="camera">
+        <button class="btn-get-user-info" bindgetuserinfo="onGotUserInfo" data-type="2" open-type="getUserInfo">授权</button>
+        <view class="card">
+            <image class="pic-write" src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/pi-write.png"></image>
+            <text>手动输入护照信息</text>
+            <view class="after"></view>
+        </view>
+
+    </view>
+</view>

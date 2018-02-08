@@ -1,0 +1,2 @@
+/* pages/baseHome/baseHome.wxss */
+@import "../../template/baseApp/baseApp.wxss";

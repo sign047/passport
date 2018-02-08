@@ -1,0 +1,108 @@
+<!--pages/baseHome/baseHome.wxml-->
+<view>
+    <text class="page-tit">家庭与职业信息</text>
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTip}}">{{errTxt}}</view>
+    <view class="align editform">
+
+        <view class=" input-wrapper">
+            <text class="base-tit">现居住地</text>
+            <picker mode = "region" class="box"
+                    value="baseHome.currentAddress"
+                    data-name="currentAddress"
+                    bindchange="statusChange" >
+                <text class="show-info ">{{baseHome.currentAddress[0]}} {{baseHome.currentAddress[1]}} {{baseHome.currentAddress[2]}}</text>
+            </picker>
+        </view>
+        <view class="flexbox input-wrapper border-none">
+            <text class="base-tit little indent">详细地址</text>
+            <view class="flexbox box input-info">
+                <input bindblur="statusChange"
+                       placeholder-style="color:#c2c2c2"
+                       class="box show-info"
+                       data-name="detailedAddress"
+                       value="{{baseHome.detailedAddress}}"
+                       placeholder="精确到门牌号" />
+            </view>
+        </view>
+        <view class="align input-wrapper">
+            <text class="base-tit">手机号码</text>
+            <input
+                    bindblur="statusChange"
+                    placeholder-style="color:#c2c2c2"
+                    class="box show-info"
+                    data-name="phone"
+                    type="number"
+                    value="{{baseHome.phone}}"
+                    placeholder="儿童请填写父母手机号码"  />
+        </view>
+        <view class="align input-wrapper">
+            <view class="flexbox">
+                <text class="base-tit">职业状况</text>
+                <view class="triangle_border_down"></view>
+            </view>
+
+            <picker bindchange="bindOccupation" data-name="occupationalStatus" value="{{baseHome.occupationalStatus}}" range="{{occupationalStatus}}" class="box">
+                <view class="flexbox">
+                    <text class="show-info">{{baseHome.occupationalStatus}}</text>
+                </view>
+            </picker>
+        </view>
+        <block wx:if="{{baseHome.occupationalStatus == '在职'}}">
+            <view class="flexbox input-wrapper border-none">
+                <text class="base-tit indent little">单位名称</text>
+                <view class="input-info">
+                    <input
+                            bindblur="statusChange"
+                            placeholder-style="color:#c2c2c2"
+                            class="box show-info"
+                            data-name="companyName"
+                            value="{{baseHome.companyName}}"
+                            placeholder=""  />
+                </view>
+            </view>
+            <view class="flexbox input-wrapper border-none">
+                <text class="base-tit indent little">职位名称</text>
+                <view class="input-info">
+                    <input
+                            bindblur="statusChange"
+                            data-name="occupationalName"
+                            placeholder-style="color:#c2c2c2"
+                            class="box show-info"
+                            data-kind="2"
+                            value="{{baseHome.occupationalName}}"
+                            placeholder=""  />
+                </view>
+            </view>
+            <view class="flexbox input-wrapper border-none">
+                <text class="base-tit indent little">单位地址</text>
+                <picker bindchange="statusChange" data-name="companyAddress" mode="region" value="{{baseHome.companyAddress}}"  class="box">
+                    <view class="flexbox">
+                        <text class="show-info info-box ">{{baseHome.companyAddress[0]}} {{baseHome.companyAddress[1]}} {{baseHome.companyAddress[2]}}</text>
+                        <view class="triangle_border_down"></view>
+                    </view>
+                </picker>
+            </view>
+            <view class="flexbox input-wrapper border-none">
+                <text class="base-tit indent little">详细地址</text>
+                <view class="input-info">
+                    <input bindblur="statusChange"
+                           placeholder-style="color:#c2c2c2"
+                           class="box show-info"
+                           data-name="detailedCompanyAddress"
+                           value="{{baseHome.detailedCompanyAddress}}"
+                           placeholder="精确到门牌号" />
+                </view>
+            </view>
+            <view class="flexbox input-wrapper border-none input-info" >
+                <text class="base-tit indent little">单位电话</text><input
+                    bindblur="statusChange"
+                    placeholder-style="color:#c2c2c2"
+                    class="box show-info "
+                    data-name="companyPhone"
+                    value="{{baseHome.companyPhone}}"
+                    placeholder=""  />
+            </view>
+        </block>
+    </view>
+    <view class="base-btn" catchtap="saveInfo">保存</view>
+</view>

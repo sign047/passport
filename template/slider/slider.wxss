@@ -1,0 +1,56 @@
+/* template/slider.wxss */
+
+.t-wrapper {
+  position:relative;
+  margin-top:190rpx;
+  width:100%;
+  height:784rpx;
+}
+.passport-item{
+  position:absolute;
+  height:782rpx;
+  width:520rpx;
+  border-radius:26rpx;
+  background:#fff;
+  top:0;
+  left:50%;
+  margin-left:-260rpx;
+  opacity:0;
+}
+.passport-item.l2,.passport-item.sl2{
+  opacity: 0;
+  transform:perspective(800px) translateX(-750px) translateX(-200%);
+  z-index: 1;
+  visibility:visible;
+}
+.passport-item.l1,.passport-item.sl1{
+  opacity: 0.8;
+  transform:perspective(800px) translateX(-100%) scale3d(.8,.8,.8);
+  z-index: 2;
+  visibility:visible;
+}
+
+.passport-item.cur{
+  opacity: 1;
+  z-index: 5;
+  transform: perspective(800px) scale3d(1,1,1);
+  visibility:visible;
+  transition:.3s transform linear;
+}
+
+.passport-item.r1,.passport-item.sr1{
+  opacity: 0.8;
+  transform:perspective(800px) translateX(100%) scale3d(.8,.8,.8);
+  z-index: 2;
+  visibility:visible;
+}
+
+.passport-item.r2,.passport-item.sr2{
+  opacity: 0;
+  transform:perspective(800px) translateX(200%) translateX(750px);
+  z-index: 1;
+  visibility:visible;
+}
+.passport-item.sr1,.passport-item.sr2,.passport-item.sl2,.passport-item.sl1{
+  transition:.3s transform linear;
+}

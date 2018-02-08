@@ -1,0 +1,60 @@
+<template name="welCropper">
+    <scroll-view class="cropper_main_container {{data.hidden?'hidden':''}}">
+        <view hidden="{{saveImage.showImage}}">
+            <view class="cropper_container">
+                <view class='cropper_canvas_container'>
+                    <canvas class="canvas" canvas-id="canvas" style="left:{{data.left}}px;top:{{data.top}}px;width:{{cropperChangableData.scaleSize.width}}px;height:{{cropperChangableData.scaleSize.height}}px;"></canvas>
+                    <canvas class="move_canvas" canvas-id="moveCanvas" style="left:{{data.left}}px;top:{{data.top}}px;width:{{cropperChangableData.scaleSize.width}}px;height:{{cropperChangableData.scaleSize.height}}px;"></canvas>
+
+                    <movable-area class="cropper_movable_area_container" style="left:{{data.left}}px;top:{{data.top}}px;width:{{cropperChangableData.scaleSize.width}}px;height:{{cropperChangableData.scaleSize.height}}px;">
+                        <block wx:if="{{cropperMovableItems}}">
+                            <block wx:for="{{cropperMovableItems}}" wx:key="moveItem">
+                                <movable-view class="move_item" style="width:{{data.itemLength}}px; height:{{data.itemLength}}px;" direction="all" x="{{item.x-data.itemLength/2}}" y="{{item.y-data.itemLength/2}}" bindtouchmove="moveEvent" bindtouchend="endEvent" data-key="{{index}}"></movable-view>
+                            </block>
+                        </block>
+                    </movable-area>
+                    <canvas class="original_canvas" canvas-id="originalCanvas" style="width:{{cropperChangableData.originalSize.width}}px;height:{{cropperChangableData.originalSize.height}}px;"></canvas>
+                </view>
+            </view>
+
+            <view class="cropper_toolbar">
+                <view class="toolbar flexbox between">
+                    <view class="button_item cancel_button box" bindtap="hideCropper">
+                        取消
+                    </view>
+                    <view class="button_item rotate_button box" bindtap="rotateImage">
+                        旋转
+                    </view>
+
+                    <!--<block wx:if="{{data.sizeType.length==2}}">-->
+                    <!--<view class="original_button button_item {{data.original?'checked':''}}" bindtap="originalChange">-->
+                    <!--&lt;!&ndash; <view class='check_container'>-->
+                    <!--<view class='check_border'></view>-->
+                    <!--<view class='check_center'></view>-->
+                    <!--</view> &ndash;&gt;-->
+                    <!--<view>原图</view>-->
+                    <!--</view>-->
+                    <!--</block>-->
+                    <view hidden="{{!cropperChangableData.canCrop}}" class="crop_image_button button_item box" bindtap="{{cropperChangableData.canCrop?'cropImage':''}}">
+                        完成
+                    </view>
+                    <!-- <view class="crop_image_button button_item" bindtap="cropImage">
+                        完成
+                    </view> -->
+                </view>
+            </view>
+        </view>
+        <view hidden="{{!saveImage.showImage}}" class="save-wrapper">
+            <text catchtap="hideCropper" class="reload">重新上传</text>
+            <image class="save-img" style="width:{{saveImage.w}}px;height:{{saveImage.h}}px" src="{{saveImage.src}}"></image>
+            <view class="upload flex" catchtap="upLoad">
+                <icon type="success" class="upload-icon" size="30" color="#fff"></icon>
+            </view>
+        </view>
+        <view class="mask" wx:if="{{load}}"></view>
+        <view class="lds-css ng-scope" wx:if="{{load}}">
+            <text class="loadTxt">拼命上传中</text>
+            <view class="lds-spinner" style="width:100%;height:100%"><view></view><view></view><view></view><view></view><view></view><view></view><view></view><view></view><view></view><view></view><view></view><view></view></view>
+        </view>
+    </scroll-view>
+</template>

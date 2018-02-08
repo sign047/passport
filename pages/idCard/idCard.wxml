@@ -1,0 +1,28 @@
+<import src="../../template/welCropper/welCropper.wxml" />
+<view class="vertical justify-normal id-card">
+<template  is="welCropper" data="{{data:cropperData,showImage,showIndex,showPre,load,cropperMovableItems,pageType,saveImage,cropperChangableData}}"></template>
+    <view class="vertical" catchtap="{{showImage[0]?'showPreview':'showAction'}}" data-index="0">
+        <image mode="scaleToFill"   binderror="errorImg" data-index="0" src="{{!showImage[0] || showImage[0] === null ?'http://7xl2r0.com1.z0.glb.clouddn.com/passport/idcard.png' : showImage[0]  }}" class="front"></image>
+        <view class="flex camerabox" hidden="{{!showImage[0]}}">
+            <image class="camera-icon" src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171222172351.png"></image>
+            <text class="uploadR">上传成功,可点击更换</text>
+        </view>
+    </view>
+    <text class="tip-word">拍摄身份证正面</text>
+    <view class="vertical" catchtap="{{showImage[1]?'showPreview':'showAction'}}" data-index="1">
+        <image mode="scaleToFill" binderror="errorImg" data-index="1" class="back" src="{{ !showImage[1] || showImage[1] === null ? 'http://7xl2r0.com1.z0.glb.clouddn.com/passport/idcard2.png': showImage[1]}}"></image>
+        <view class="flex camerabox" hidden="{{!showImage[1]}}">
+            <image class="camera-icon" src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171222172351.png"></image>
+            <text class="uploadR">上传成功,可点击更换</text>
+        </view>
+    </view>
+    <text class="tip-word">拍摄身份证反面</text>
+
+    <view class="vertical align-normal id-wraper" wx:if="{{showImage.length < 2}}">
+        <text class="id-tit">资料要求</text>
+        <text class="id-desc">·请将证件放在白色A4纸上进行拍摄</text>
+        <text class="id-desc">·清晰拍摄正反面，不能反光</text>
+        <text class="id-desc">·请注意露出四个边角，不要压边拍摄</text>
+    </view>
+    <view class="pic-confirm" wx:if="{{showImage.length == 2}}" catchtap="savePic">保存</view>
+</view>

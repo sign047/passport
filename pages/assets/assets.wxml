@@ -1,0 +1,34 @@
+<!--pages/assets/assets.wxml-->
+<import src="../../template/welCropper/welCropper.wxml" />
+<view class="vertical 100vh">
+      <template  is="welCropper" data="{{data:cropperData,load,showImage,showIndex,showPre,cropperMovableItems,pageType,saveImage,cropperChangableData}}"></template>
+      <image wx:if="{{showImage.length <= 0}}"
+             catchtap="showAction"
+             data-index="0"
+             src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/asss.png"
+             class="front"></image>
+      <view class="vertical home-page"
+            catchtap="{{showImage[idx]?'showPreview':'showAction'}}"
+            data-index="{{idx}}"
+            wx:for-index="idx"
+            wx:for="{{showImage}}"
+            wx:key="{{idx}}"
+            wx:for-item="img">
+            <image src="{{img}}" class="front"></image>
+            <view class="flex camerabox" hidden="{{!img}}">
+                  <image class="camera-icon" src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20171222172351.png"></image>
+                  <text class="uploadR">上传成功,可点击更换</text>
+            </view>
+      </view>
+      <view hidden="{{showImage.length <= 0}}" class="more-btn" catchtap="showAction"  data-index="{{showImage.length}}">
+            <text>+ 再传一张</text>
+      </view>
+      <view class="vertical align-normal id-wraper" >
+            <text class="id-tit">资料要求</text>
+            <text class="id-desc">·以下三项，提供其中一项即可</text>
+            <text class="id-desc">·房产证复印件</text>
+            <text class="id-desc">·购车证复印件</text>
+            <text class="id-desc">·邮寄存款证明原件（金额5万元，冻结3个月）</text>
+      </view>
+      <view class="pic-confirm" hidden="{{showImage.length == 0}}" catchtap="savePic">保存</view>
+</view>

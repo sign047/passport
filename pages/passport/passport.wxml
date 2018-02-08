@@ -1,0 +1,160 @@
+
+<view class="align" >
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errTxt}}</view>
+    <view class="head-nav">
+       <text catchtap="changeNav" data-type="1" class="nav {{visaHidden?'active':''}}">护照首页</text>
+       <text catchtap="changeNav" data-type="2" class="nav {{visaHidden?'':'active'}}">签证信息</text>
+    </view>
+    <view class="passport">
+        <view class="align editform t20" hidden="{{!visaHidden}}">
+            <view class="flexbox p" >
+                <text class="label">护照号码</text><text class="box show-info">{{passport.huNumber}}</text>
+            </view>
+            <view class="flexbox p" >
+                <text class="label">中文姓名</text><text class="box show-info">{{passport.huName}}</text>
+            </view>
+            <view class="flexbox p" >
+                <text class="label">姓名拼音</text><text class="box show-info">{{passport.huPinYin}}</text>
+            </view>
+            <view class="flexbox p" >
+                <picker bindchange="bindSexChange"
+                        disabled="isShare"
+                        value="{{sexIndex}}"
+                        range="{{sex}}"
+                        class="box">
+                    <view class="flexbox">
+                        <text class="label">性别</text><text class="show-info">{{huSex}}</text>
+                    </view>
+                </picker>
+            </view>
+            <view class="flexbox p">
+                <picker mode="date" class="box"
+                        disabled="isShare"
+                        value="{{bornDate}}"
+                        start="1900-09-01"
+                        end="2050-09-01"
+                        data-kind="1"
+                        bindchange="bindDateChange" >
+                    <view class="flexbox">
+                        <text class="label">出生年月</text>
+                        <text class="show-info">{{huBoth}}</text>
+                    </view>
+                </picker>
+            </view>
+            <view class="flexbox p" >
+                <text class="label">出生地</text><text class="box show-info">{{passport.huBirthPlace && passport.huBirthPlace != 'null' ? passport.huBirthPlace : '暂未上传'}}</text>
+            </view>
+        </view>
+
+        <view class="align editform b20" hidden="{{!visaHidden}}">
+            <view class="flexbox p" >
+                <text class="label">签发地</text><text class="show-info box">{{passport.huIssueplace}}</text>
+            </view>
+            <view class="flexbox p">
+                <picker mode="date" class="box"
+                        disabled="isShare"
+                        value="{{signDate}}"
+                        start="1980-09-01"
+                        data-kind="2"
+                        end="2050-09-01"
+                        bindchange="bindDateChange" >
+                    <view class="flexbox">
+                        <text class="label">签发日期</text>
+                        <text class="show-info">{{huCreateTime}}</text>
+                    </view>
+                </picker>
+            </view>
+            <view class="flexbox p">
+                <picker mode="date"
+                        disabled="isShare"
+                        class="box"
+                        value="{{effectiveDate}}"
+                        data-kind="3"
+                        start="1980-09-01"
+                        end="2050-09-01"
+                        bindchange="bindDateChange" >
+                    <view class="flexbox between">
+                        <view class="flexbox">
+                            <text class="label">有效期至</text>
+                            <text class="show-info">{{huExpireTime}}</text>
+                        </view>
+                        <text class="outtime">{{lastTime}}</text>
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="flex" wx:if="{{!isShare}}" hidden="{{!visaHidden}}">
+            <view class="dle box flex" catchtap="delPass">
+                <image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/pass-del.png"></image>
+                <text>删除</text>
+            </view>
+            <view class="edit box flex" catchtap="editPass" >
+                <image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/pass-edit.png"></image>
+                <text>编辑</text>
+            </view>
+        </view>
+    </view>
+    <view class="s-circle" hidden="{{visaHidden}}"></view>
+    <view class="sm-circle" hidden="{{visaHidden}}"></view>
+    <view class="camera vertical" hidden="{{visaHidden}}" catchtap="toVisa" wx:if="{{visaList.length ==0 && isShare == false}}">
+    <image class="camera-img" src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180108153805.png"></image>
+    <!--<image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/add.png"></image>-->
+    <text class="visa-tip">*签证记录与出入境信息越丰富，使馆越容易批准你的签证申请</text>
+    </view>
+    <view scroll-y="{{visaList.length>=3}}" hidden="{{visaHidden}}" class="align visa-wraper">
+
+        <view wx:if="{{visaList.length>0}}" class="visainfo-list">
+            <view class="visa-info"
+                  wx:for="{{visaList}}"
+                  wx:for-item="item"
+                  wx:for-index="index"
+                  wx:key="index"
+                  data-id="{{item.id}}"
+                  style="{{item.txtStyle}}"
+            >
+                <view  bindtouchstart="touchS"
+                       bindtouchend="touchE"
+                       data-index="{{index}}">
+                    <text class="visa-tit medium">{{item.visaName}}签证</text>
+                    <view class="flexbox">
+                        <picker mode="date"
+                                bindchange="bindStartChange"
+                                data-index="{{index}}"
+                                data-visa="{{item}}"
+                                start="1900-09-01"
+                                end="2050-09-01" >
+                            <view class="align info-left">
+                                <text class="label">签发时间</text>
+                                <text class="show-time blue">{{item.createTime}}</text>
+                            </view>
+                        </picker>
+                        <picker mode="date" class="box" bindchange="bindEndChange" data-index="{{index}}" data-visa="{{item}}" start="1900-09-01" end="2050-09-01">
+                            <view class="flexbox between box end">
+                                <view class="align info-right">
+                                    <text class="label">有效期至</text>
+                                    <text class="show-time red">{{item.expireTime}}</text>
+                                </view>
+                                <text class="outtime outtime2">{{item.lastTime}}</text>
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="delbtn" catchtap="del" data-id="{{item.id}}" data-index="{{index}}">
+                    删除
+                </view>
+            </view>
+        </view>
+        <view  class="flex add-icon" catchtap="toVisa" wx:if="{{visaList.length>= 1}}">
+           <text>+</text>
+        </view>
+        <view class="vertical novisa" wx:if="{{visaList.length ==0 && (isShare == true || isShare == 'true')}}">
+            <image class="pen" src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/pen.png"></image>
+            <view>无签证信息,可在<text class="color">保存</text>后添加</view>
+        </view>
+    </view>
+    <button class="saveBtn medium share" open-type="share" loading="{{isGo}}"  disabled="{{isGo}}" wx:if="{{!isShare}}">共享给家人</button>
+    <button class="saveBtn medium share"
+            bindgetuserinfo="onGotUserInfo"
+            open-type="getUserInfo"
+            wx:if="{{isShare}}">保存到我的护照</button>
+</view>

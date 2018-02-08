@@ -1,0 +1,35 @@
+<view class="addVisaData">
+    <view class="data-box-tip align {{hideCard ? 'hide' : ''}}">
+        <text class='tit medium'>什么是签证资料夹？</text>
+        <text class="medium">你知道吗？</text>
+        <text class="medium">所有签证所需资料大同小异</text>
+        <text class="medium">  可大多数人每次办签证都在重复整理，烦不胜烦</text>
+        <text class="medium">为什么不一劳永逸，一次上传，永久存档呢？</text>
+        <view class="flexbox v-end ">
+          <view class="button flex" catchtap="hideCard">
+              <icon color="#fff" type="success_no_circle" size="21"></icon>
+              <text>我知道了</text>
+          </view>
+        </view>
+    </view>
+    <view class="showlist {{hideCard ? 'up' :''}}">
+        <view class="flex add-btn  visa-data between " >
+            <button bindgetuserinfo="toNewFile"  class="noVisa-button" open-type="getUserInfo" ></button>
+            <text class="medium" >添加新的签证资料</text><image src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/553344276075716271.png"></image>
+        </view>
+        <view class="flex visa-data between new-visa-data"
+              catchtap="toEditFile"
+              data-id="{{file.id}}"
+              data-file="{{file}}"
+              wx:for="{{visaFiles}}"
+              wx:for-item="file"
+              wx:key="{{file.id}}">
+            <view class="align">
+                <text class="medium p-name">{{file.visaFileUserName}}</text>
+                <text class='visa-num'>护照{{file.visaFileDesc}}</text>
+            </view>
+            <text class=" {{file.step ===3 ? 'ok' : 'not'}}">{{file.step === 3 ? '已完成' : '待完善'}}</text>
+        </view>
+    </view>
+</view>
+

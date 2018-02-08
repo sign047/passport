@@ -1,0 +1,5 @@
+<!--template/photo/photo.wxml-->
+
+<view>
+   <slot></slot>
+</view>

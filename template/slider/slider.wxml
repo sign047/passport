@@ -1,0 +1,16 @@
+<!--template/slider.wxml-->
+<view class="t-wrapper"  bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchend">
+    <view class="passport-item {{name[idx]}}"
+          catchtap="toPort"
+          catchlongpress="del"
+          data-id="{{passport.id}}"
+          data-index="{{idx}}"
+          wx:for="{{list}}"
+          wx:for-index="idx"
+          wx:for-item="passport"
+          wx:key="idx">
+        <view class="passport {{name[idx]}}">
+            <slot ></slot>
+        </view>
+    </view>
+</view>

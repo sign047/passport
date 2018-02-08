@@ -1,0 +1,13 @@
+.addOk{
+  color:#525e6e;
+  font-size:40rpx;
+  margin-top:40rpx;
+  display:block;
+
+}
+.t120{
+  margin-top:120rpx;
+}
+.look-btn{
+  margin-top:260rpx;
+}

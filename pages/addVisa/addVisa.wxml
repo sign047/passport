@@ -1,0 +1,25 @@
+<view class="align add-visa">
+    <text class="add-tit">如有以下签证,可多选快速创建</text>
+    <view class="checkwrap">
+        <!--<checkbox-group bindchange="checkboxChange" class="align">-->
+            <!--<label class="checkbox flexbox" wx:for="{{items}}" wx:for-index="index" wx:key="index">-->
+                <!--<checkbox value="{{item.name}}" checked="{{items.checked}}" />{{item.name}}签证-->
+            <!--</label>-->
+        <!--</checkbox-group>-->
+            <checkbox-group class="align" bindchange="checkboxChange">
+                <label class="checkbox flexbox" wx:for="{{items}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+                    <checkbox class="weui-check" value="{{item.name}}" style="position:absolute;left:-9999px;" checked="{{item.checked}}" />
+                    <view>
+                        <icon class="weui-icon-checkbox_circle" type="circle"   size="22" wx:if="{{!item.checked}}"></icon>
+                        <icon class="weui-icon-checkbox_success" color="#485465" type="success" size="22" wx:if="{{item.checked}}"></icon>
+                    </view>
+                    <view class="weui-cell__bd">{{item.name}}签证</view>
+                </label>
+            </checkbox-group>
+        <view class="flexbox" catchtap="toExpiry">
+            <image class="circle" src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/addcircle.png"></image>
+            <text class="add-other medium">添加其他签证</text>
+        </view>
+    </view>
+    <text class="btn medium next" catchtap="next">下一步</text>
+</view>

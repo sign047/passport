@@ -1,0 +1,77 @@
+<!--pages/basePassport/basePassport.wxml-->
+<!--pages/baseInfo/baseInfo.wxml-->
+
+<view class="addport">
+    <view class="page-tit">护照信息</view>
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTip}}">{{errTxt}}</view>
+    <view class="align editform">
+        <view class="input-wrapper">
+            <text class="base-tit">身份证号码</text>
+            <input bindblur="statusChange"
+                   class="box show-info"
+                   placeholder-style="color:#c2c2c2"
+                   data-name="idCardNumber"
+                   type="idcard"
+                   value="{{basePassport.idCardNumber}}"
+                   placeholder="请输入你的身份证" />
+        </view>
+        <view class="input-wrapper">
+            <text class="base-tit">护照号码</text>
+            <input bindblur="statusChange"
+                   placeholder-style="color:#c2c2c2"
+                   class="box show-info"
+                   data-name="huNumber"
+                   disabled = 'true'
+                   value="{{basePassport.huNumber}}"
+                   placeholder="请输入你的护照号码" />
+        </view>
+        <view class="input-wrapper">
+            <text class="base-tit">签发地点</text>
+            <input bindblur = "statusChange"
+                   placeholder-style="color:#c2c2c2"
+                   class="box show-info"
+                   data-name="issuePlace"
+                   data-kind="2"
+                   value="{{basePassport.issuePlace}}"
+                   placeholder="请输入"  />
+        </view>
+        <view class="input-wrapper">
+            <view class="flexbox">
+                <text class="base-tit">签发日期</text>
+                <view class="triangle_border_down"></view>
+            </view>
+            <picker bindchange="statusChange"
+                    data-name="issueDate"
+                    class="show-info"
+                    value="{{basePassport.issueDate}}"
+                    mode="date" >
+                <text class="show-info">{{basePassport.issueDate}}</text>
+            </picker>
+        </view>
+        <view class="input-wrapper">
+            <view class="flexbox">
+                <text class="base-tit">有效期至</text>
+                <view class="triangle_border_down"></view>
+            </view>
+            <picker bindchange="statusChange"
+                    data-name="expireTime"
+                    class="show-info"
+                    value="{{basePassport.expireTime}}"
+                    mode="date" >
+                <text class="show-info">{{basePassport.expireTime}}</text>
+            </picker>
+        </view>
+        <view class="input-wrapper">
+            <text class="base-tit">签发机关</text>
+            <input
+                   disabled="true"
+                   placeholder-style="color:#c2c2c2"
+                   class="box show-info"
+                   data-name="firstName"
+                   value="{{basePassport.issueAuthority}}"
+                   placeholder="公安部出入境管理局" />
+        </view>
+    </view>
+    <button catchtap="saveInfo" class="base-btn">保存</button>
+</view>
+

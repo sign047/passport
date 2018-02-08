@@ -1,0 +1,9 @@
+
+<view class="expiry">
+    <view class="align editform">
+        <view class="flexbox p">
+            <text class="label">护照号码</text><input bindinput="bindNum" class="box" placeholder-style="color:#c2c2c2" placeholder="{{numPlace}}" />
+        </view>
+    </view>
+    <text class="medium btn saveBtn" catchtap="topassport">保存</text>
+</view>

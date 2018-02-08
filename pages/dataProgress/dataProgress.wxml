@@ -1,0 +1,28 @@
+<!--pages/dataProgress/dataProgress.wxml-->
+<view class="align load-wrapper">
+    <view class="align border">
+       <text class="h3 medium">护照首页</text>
+       <text class="l-txt m30">护照首页已上传成功，暂不支持修改</text>
+    </view>
+     <view class="align border">
+       <text class="h3 medium">基础资料</text>
+       <view class="flexbox radio {{base.isOk? 'active':''}}" wx:for="{{bases}}" wx:for-index="idx" wx:for-item="base" wx:key="idx">
+          <view class="circle">
+              <icon class="weui-icon-checkbox_circle" type="success_no_circle" color="{{base.isOk? '#666':'#fff'}}" size="14"></icon>
+          </view>
+          <text class="l-txt">{{base.txt}}</text>
+       </view>
+    </view>
+     <view class="align border">
+      <text class="h3 medium">选填资料</text>
+      <view class="flexbox radio {{choice.isOk? 'active':''}}" wx:for="{{choices}}"  wx:for-index="idx" wx:for-item="choice" wx:key="idx">
+        <view class="circle">
+           <icon class="weui-icon-checkbox_circle" type="success_no_circle" color="{{choice.isOk? '#666':'#fff'}}" size="14"></icon>
+        </view>
+        <text class="l-txt">{{choice.txt}}</text>
+      </view>
+    </view>
+       <view catchtap="toEditFile">
+            <button class="pic-confirm pic-confirm2">{{currentFile.step == 3? '去修改':'去填写'}}</button>
+        </view>
+</view>

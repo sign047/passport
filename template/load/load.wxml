@@ -1,0 +1,7 @@
+<!--template/load/load.wxml-->
+ <view class="load" hidden="{{!showLoad}}">
+    <view class="mask">
+        <image class="img" src="/images/i-loadloop.gif" alt=""></image>
+        <view class="p">{{text}}</view>
+    </view>
+ </view>

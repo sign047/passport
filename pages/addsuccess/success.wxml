@@ -1,0 +1,5 @@
+<view class="vertical t120">
+   <icon type="success" size="90" color="#485465"/>
+    <text class="addOk">护照信息已上传</text>
+    <text class="look-btn btn medium" catchtap="toPass">查看护照</text>
+</view>

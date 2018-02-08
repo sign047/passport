@@ -1,0 +1,134 @@
+/* pages/visaFiles/visaFiles.wxss */
+@import "/template/welCropper/welCropper.wxss";
+.visaFiles{
+
+}
+.navbox{
+  border-bottom:1rpx solid #f4f4f4;
+  padding:10rpx 0 14rpx;
+}
+.navbar{
+  position:relative;
+}
+.navbar .txt{
+   color:#999;
+  font-size:28rpx;
+  line-height:40rpx;
+
+}
+.navbar .round{
+  color:#e3e3e3;
+  font-size:24rpx;
+  margin-left:60rpx;
+  text-shadow: #485465;
+}
+.navbar.active .txt{
+    color:#000;
+}
+.active ::after{
+  content:'';
+  position:absolute;
+  left:12rpx;
+  bottom:-14rpx;
+  background:#000;
+  width:88rpx;
+  height:2rpx;
+}
+/**/
+.base-list{
+  padding-top:16rpx;
+}
+.base{
+  padding:10rpx;
+  border:1rpx dashed #e3e3e3;
+  background:#fcfcfc;
+  margin-bottom:20rpx;
+}
+.base-cont{
+  background:#f9fcff;
+  padding:81rpx 50rpx 81rpx 80rpx;
+  color:#9fd2ff;
+}
+.base-cont image{
+  width:92rpx;
+  height:76rpx;
+
+}
+.base-name{
+  margin:0 236rpx 0 36rpx;
+  font-size:32rpx;
+  line-height:44rpx;
+  width:128rpx;
+}
+.base-pic{
+  background:#fffff9;
+  color:#fcea7e;
+  padding-left:68rpx;
+}
+.base-home{
+  background:#fffaf9;
+  color:#ffaf8e;
+}
+.base-application{
+  background:#fff9fe;
+  padding-left:90rpx;
+  color:#fe99b5;
+}
+
+.base-application image{
+  height:90rpx;
+  width:82rpx;
+}
+.base-pic image{
+  width:104rpx;
+  height:92rpx;
+}
+.picbox{
+  margin-top:72rpx;
+  width:640rpx;
+  height:492rpx;
+  position:relative;
+  overflow: hidden;
+}
+.passport-pic{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  border-radius: 6rpx;
+}
+.load{
+  position:fixed;
+  height:100vh;
+  width:750rpx;
+  left:0;
+  top:0;
+  z-index:222;
+  background:rgba(255,255,255,1);
+  border-top:1rpx solid #f9f9f9;
+}
+.mode{
+  position:absolute;
+  left:50%;
+  top:30%;
+  transform: translate3d(-50%,0,0);
+  /* width:220rpx; */
+  /* height:220rpx; */
+  padding:20rpx 51rpx;
+  background:rgba(0,0,0,1);
+  border-radius:10rpx;
+}
+.img{
+  margin:20rpx auto 0;
+  display:block;
+  width:140rpx;
+  height:140rpx;
+  border-radius:50%;
+}
+.p{
+  text-align:center;
+  color:#fff;
+  font-size:28rpx;
+  margin-top:4rpx;
+}
