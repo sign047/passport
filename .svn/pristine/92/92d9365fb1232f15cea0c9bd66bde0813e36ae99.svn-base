@@ -1,0 +1,182 @@
+var app=getApp();
+var util=require('../../utils/util');
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+      sex:['男','女'],
+      visaList:[],
+      id:'',
+      sexIndex:'',
+      passport:{
+
+      },
+      hidden:true,
+      huBoth:'',
+      huCreateTime:'',
+      huExpireTime:'',
+      huSex:''
+  },
+  bindDateChange: function(e) {
+        var val=e.detail.value.split('-');
+        var time=`${val[0]}年${val[1]}月${val[2]}日`;
+        var value=e.detail.value;
+        var kind= e.currentTarget.dataset.kind;
+        var passport=this.data.passport;
+        var url=app.globalData.huoLiBase+'updatePassPort';
+        var authToken=app.globalData.authToken;
+        var id=this.data.id;
+        var that=this;
+        switch(kind){
+            case '1':
+                util.http(url,{authToken:authToken,huBoth:value,hId:id},function(){
+                    that.setData({huBoth:time});
+                });
+                break;
+            case '2':
+                this.setData({huCreateTime:value});
+                util.http(url,{authToken:authToken,huCreateTime:value,hId:id},function(){
+                    that.setData({huCreateTime:time});
+                });
+                break;
+            case '3':
+                util.http(url,{authToken:authToken,huExpireTime:value,hId:id},function(){
+                    that.setData({huExpireTime:time});
+                });
+                break;
+        }
+
+    },
+    del:function(ev){
+        var url=app.globalData.huoLiBase+'delVisa';
+        var visaId = ev.currentTarget.dataset.id;
+        var index=ev.currentTarget.dataset.index;
+        var authToken=app.globalData.authToken;
+        var that=this;
+        wx.showModal({
+            title: '是否删除签证',
+            success: function(res){
+                if (res.confirm) {
+                    util.http(url,{visaId:visaId,authToken:authToken},function(){
+                        var list=that.data.visaList;
+                        list.splice(index,1);
+                        that.setData({
+                            visaList:list
+                        })
+                    })
+                } else if (res.cancel) {
+
+                }
+            }
+        })
+    },
+    bindSexChange: function(e) {
+        var index=e.detail.value;
+        var data=this.data;
+        var sex=data.sex[index];
+        var url=app.globalData.huoLiBase+'updatePassPort';
+        var authToken=app.globalData.authToken;
+        var id=this.data.id;
+        this.setData({
+            huSex:sex
+        });
+        util.http(url,{authToken:authToken,huSex:sex,hId:id},function(){
+
+        });
+
+    },
+    confirm:function(e){
+        console.log(e.detail.value);
+        this.setData({
+            hidden:true
+        })
+    },
+    toEditName:function(){
+        var data=this.data,
+            id=data.id,
+            passport=data.passport;
+        if(!passport.huName || !passport.huPinYin) return;
+        var  huName=passport.huName,
+             huPinYin=passport.huPinYin;
+        wx.navigateTo({
+            url:`../editname/editname?id=${id}&huName=${huName}&huPinYin=${huPinYin}`
+        })
+    },
+    toEditCity:function(){
+        var data=this.data,
+            id=data.id,
+            passport=data.passport;
+        if(!passport.huIssueplace) return;
+
+        wx.navigateTo({
+            url:`../editcity/editcity?id=${id}&huIssueplace=${passport.huIssueplace}`
+        })
+    },
+    toEditNum:function(){
+        var data=this.data,
+            id=data.id,
+            passport=data.passport;
+        if(!passport.huNumber || !passport.huTag) return;
+        console.log(passport.huTag);
+        console.log(passport.huNumber);
+        wx.navigateTo({
+            url:`../editnum/editnum?id=${id}&huNumber=${passport.huNumber}&huTag=${passport.huTag}`
+        })
+    },
+    toVisa:function(){
+        var id=this.data.id;
+        wx.navigateTo({
+            url:`../addVisa/addVisa?id=${id}`
+        })
+    },
+    getVisaList:function(id,authToken){
+        var url=app.globalData.huoLiBase+'getVisa';
+        var that=this;
+        util.http(url,{huId:id,authToken:authToken},function(data){
+             var list=data.object;
+             list.forEach(function(item,index){
+                 item['lastTime']=util.matchTime(item.expireTime,2);
+                 item.expireTime=util.toDate2(item.expireTime);
+                 item.createTime=util.toDate2(item.createTime);
+             });
+             that.setData({
+                 visaList:list
+             })
+        })
+    },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+      var id=options.id;
+      var that=this;
+      this.setData({
+          id:id
+      });
+      var url=app.globalData.huoLiBase+'getPassPortById';
+      var authToken=app.globalData.authToken;
+      util.http(url,{huId:id,authToken:authToken},function(data){
+          var list=data.object;
+          var lastTime=util.matchTime(list.huExpireTime,1);
+          var huExpireTime=util.toDate(list.huExpireTime);
+          var huCreateTime=util.toDate(list.huCreateTime);
+          var huBoth=util.toDate(list.huBoth);
+          list['lastTime']=lastTime;
+          list['huExpireTime']=huExpireTime;
+          list['huCreateTime']=huCreateTime;
+          list['huBoth']=huBoth;
+          that.setData({
+              passport:list,
+              huExpireTime:huExpireTime,
+              huCreateTime:huCreateTime,
+                    huBoth:huBoth,
+                     huSex:list.huSex
+          });
+          var tit=`${list.huName}的护照`;
+          util.setTitle(tit)
+      });
+      this.getVisaList(id,authToken);
+  }
+});

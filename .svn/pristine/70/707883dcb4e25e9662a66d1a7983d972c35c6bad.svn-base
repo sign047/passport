@@ -1,0 +1,184 @@
+
+.blue-circle{
+  background:url('http://7xl2r0.com1.z0.glb.clouddn.com/289776135225218116.png') no-repeat;
+  height:384rpx;
+  width:172rpx;
+  background-size:172rpx 384rpx;
+  position:fixed;
+  right:0;
+  top:4rpx;
+}
+.s-circle{
+  position:fixed;
+  width:102rpx;
+  height:102rpx;
+  border-radius:50%;
+  background:#ddeef6;
+  bottom:12rpx;
+  left:-51rpx;
+}
+.sm-circle{
+  width:26rpx;
+  height:26rpx;
+  background:#d6e8f5;
+  position:fixed;
+  bottom:146rpx;
+  left:40rpx;
+  border-radius:50%;
+}
+.t-wrapper {
+  position:relative;
+  margin-top:190rpx;
+  width:100%;
+  height:784rpx;
+}
+.passport-list{
+  width:100%;
+  height:100vh;
+  background:#f9f9f9;
+  overflow: hidden;
+  position:fixed;
+
+}
+.passport-item{
+  position:absolute;
+  height:782rpx;
+  width:520rpx;
+  border-radius:26rpx;
+  background:#fff;
+  top:0;
+  left:50%;
+  margin-left:-260rpx;
+  opacity:0;
+}
+.passport-box {
+  box-sizing: border-box;
+   padding:116rpx 90rpx 32rpx;
+  position:relative;
+  overflow: hidden;
+}
+.coupon-img{
+  height:190rpx;
+  width:190rpx;
+  border-radius:50%;
+  position:absolute;
+  left:50%;
+  transform:translate3d(-50%,0,0);
+  top:-95rpx;
+  z-index:20;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,.1);
+}
+.center{
+  width:100%;
+}
+.info-new{
+  color:#333;
+  font-size:32rpx;
+  margin-bottom:18rpx;
+  line-height:44rpx;
+
+}
+
+.info-name{
+  color:#999;
+  font-size: 20rpx;
+  line-height:28rpx;
+  width:260rpx;
+}
+.visaTip{
+  position:absolute;
+  left:0;
+  width:100%;
+  background:#afdeff;
+  bottom:0;
+  color:#fff;
+  font-size:32rpx;
+  text-align:center;
+  padding:24rpx 0;
+  border-radius:0 0 26rpx 26rpx;
+  text-shadow: 0 2rpx 6rpx rgba(70,162,227,.8);
+
+}
+.max-box{
+  overflow: hidden;
+  width:140rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.visaTip image{
+  display:block;
+  height:32rpx;
+  width:32rpx;
+  position:absolute;
+  top:50%;
+  right:36rpx;
+  transform: translate3d(0,-50%,0);
+}
+/*轮播*/
+.passport-item.l2,.passport-item.sl2{
+  opacity: 0;
+  transform:perspective(800px) translateX(-750px) translateX(-200%);
+  z-index: 1;
+  visibility:visible;
+}
+.passport-item.l1,.passport-item.sl1{
+  opacity: 0.8;
+  transform:perspective(800px) translateX(-100%) scale3d(.8,.8,.8);
+  z-index: 2;
+  visibility:visible;
+}
+
+.passport-item.cur{
+  opacity: 1;
+  z-index: 5;
+  transform: perspective(800px) scale3d(1,1,1);
+  visibility:visible;
+  transition:.3s transform linear;
+}
+
+.passport-item.r1,.passport-item.sr1{
+  opacity: 0.8;
+  transform:perspective(800px) translateX(100%) scale3d(.8,.8,.8);
+  z-index: 2;
+  visibility:visible;
+}
+
+.passport-item.r2,.passport-item.sr2{
+  opacity: 0;
+  transform:perspective(800px) translateX(200%) translateX(750px);
+  z-index: 1;
+  visibility:visible;
+}
+.passport-item.sr1,.passport-item.sr2,.passport-item.sl2,.passport-item.sl1{
+  transition:.3s transform linear;
+}
+.line{
+  border-top:1rpx #ebebeb dotted;
+  width:520rpx;
+  margin:6rpx 0 32rpx;
+}
+/*no-visa*/
+.no-visa{
+
+}
+.photo{
+  height:470rpx;
+  width:450rpx;
+  margin:160rpx auto 160rpx;
+  display:block;
+}
+.point{
+  flex-wrap:wrap;
+  margin-left:106rpx;
+}
+.point text{
+  background:#000;
+  color:#fff;
+  font-size:30rpx;
+  display:block;
+  margin:0 36rpx 36rpx 0;
+  text-align:center;
+  width:248rpx;
+  padding:12rpx 0;
+}

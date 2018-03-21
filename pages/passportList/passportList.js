@@ -27,6 +27,9 @@ Page({
         isRight:true,
         showLoad:true,
         showCard:false,
+        node:{
+          x:100,y:100
+        },
         name:[],
         count:0,
         pageType:'passport'
@@ -456,6 +459,11 @@ Page({
     onGotUserInfo:function(){
         var that=this;
         app.login(that.choice);
+    },
+    onLoad(){
+      this.setData({
+        node: { x: 80, y: 120 },
+      })
     },
     choice:function(){
         wx.switchTab({

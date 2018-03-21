@@ -1,0 +1,148 @@
+
+.tit{
+   color:#a8a8a8;
+   font-size:28rpx;
+   font-family:'Helvetica-Regular';
+   text-indent:6rpx;
+}
+
+.title{
+  color:#242424;
+  font-size:60rpx;
+  font-family:'PingFangSC-Medium', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Semibold', 'Arial', sans-serif;
+}
+.head{
+padding-left:32rpx
+}
+.box{
+    padding-top:70rpx;
+}
+
+.scroll{
+    align-items:center;
+    margin-top:56rpx;
+}
+
+.passport-item{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+   box-shadow: 0 4rpx 10rpx  rgba(0,0,0,0.5);
+    border-radius:8rpx;
+    width:684rpx;
+    padding:44rpx 40rpx;
+    position:relative;
+    margin-bottom:28rpx;
+    box-sizing:border-box;
+}
+.passport-item:nth-last-child(1){
+   margin-bottom:0;
+}
+.passport-item .leftimg{
+   display:block;
+   width:120rpx;
+   height:120rpx;
+   border-radius:4rpx;
+   margin-right:28rpx;
+   margin-top:6rpx;
+
+}
+.passport-item .loc-icon{
+    display:block;
+    width:24rpx;
+    height:30rpx;
+}
+.passport-item .info-name{
+    width:144rpx;
+    color:#a4b0c0;
+    font-size:24rpx;
+}
+
+.passport-item .info-new{
+    color:#485465;
+    font-size:30rpx;
+}
+.star{
+ position:absolute;
+ top:-3rpx;
+ right:44rpx;
+ display:block;
+ height:86rpx;
+ width:70rpx;
+}
+
+.right .flex{
+  margin-bottom:14rpx;
+}
+.right .flex:nth-last-child(1){
+  margin-bottom:24rpx;
+}
+.city{
+    color:#485465;
+    font-size:24rpx;
+    margin-left:8rpx;
+}
+.time{
+    background:rgba(168,180,196,.6);
+    border-radius:8rpx;
+    height:44rpx;
+    padding:0 16rpx;
+    color:#fff;
+    font-size:24rpx;
+    text-align:center;
+    line-height:44rpx;
+
+}
+
+.tip{
+    color:rgb(168,180,196);
+    font-size:24rpx;
+    margin-bottom:48rpx;
+    width:100%;
+    padding:0 52rpx;
+    box-sizing:border-box;
+}
+.tip .align{
+    flex:1;
+
+}
+.tip .align .flexbox{
+   margin-bottom:6rpx;
+}
+.tip icon{
+    margin-right:10rpx;
+}
+.addBtn{
+    border-radius:16rpx;
+    height:90rpx;
+
+    width:674rpx;
+    margin:0 auto;
+    background:#3b48ee;
+    text-align:center;
+    color:#fff;
+    font-size:30rpx;
+}
+.addBtn .strong{
+    font-weight:bold;
+    font-size:60rpx;
+    margin-right:6rpx;
+}
+.fixed{
+  position:fixed;
+  left:50%;
+  transform:translate3d(-50%,0,0);
+  bottom:100rpx;
+}
+.scroll-view{
+  height:800rpx;
+  background:#fff;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+page{
+  background:#fff;
+}

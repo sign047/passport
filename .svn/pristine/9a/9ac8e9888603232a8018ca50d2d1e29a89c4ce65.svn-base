@@ -1,0 +1,94 @@
+var util=require('../../utils/util');
+var wxRequest = require('../../utils/wxRequest');
+var app=getApp();
+Page({
+    data:{},
+    showAction:function(){
+        var that=this;
+        console.log(that);
+        wx.showActionSheet({
+            itemList: ['拍照', '从手机相册选择'],
+            success: function(res) {
+                console.log(res.tapIndex);
+                if(res.tapIndex == 0){
+                    that.setData({
+                        sourceType:['camera']
+                    })
+                }else if(res.tapIndex == 1){
+                    that.setData({
+                        sourceType:['album']
+                    })
+                }
+                that.choice();
+            },
+            fail: function(res) {
+                console.log(res.errMsg);
+            }
+        })
+    },
+    choice: function () {
+        var that = this;
+        var sourceType=this.data.sourceType;
+        wx.chooseImage({
+            count: 1, // 默认9
+            sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+            sourceType:sourceType, // 可以指定来源是相册还是相机，默认二者都有
+            success: function (res) {
+
+                console.log(res);
+                // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+                var tempFilePaths = res.tempFilePaths;
+                that.setData({
+                    image_photo: tempFilePaths
+                });
+                that.uploadPhoto();
+            }
+        })
+    },
+    uploadPhoto: function () {
+        var that = this;
+        wx.showLoading({
+            title: '图片解析中',
+            mask: true
+        });
+        console.log(app.globalData.huoLiBase+'upLoadJpg');
+        console.log(that.data.image_photo[0]);
+        var uploadTask=wx.uploadFile({
+            url: app.globalData.huoLiBase+'upLoadJpg',
+            // url:'http://192.168.11.211:8080/hzgj/upLoadJpg',
+            filePath: that.data.image_photo[0],
+            header: {"Content-Type": "multipart/form-data"},
+            name: 'passport',
+            // formData: {
+
+            // },
+            success: function (res) {
+                console.log(res);
+                if(res.statusCode !== 200) return;
+                var data = JSON.parse(res.data);
+                if(data.code === 200){
+                    wx.redirectTo({
+                        url:'../addpassport/addpassport?isScanning=true&passport='+JSON.stringify(data.object)
+                    });
+                }else{
+                    wx.showModal({
+                        title:'解析出错,请上传符合规格的图片'
+                    })
+                }
+
+            },
+            fail:function(err){
+                console.log(err);
+            },
+            complete:function(){
+                wx.hideLoading();
+            }
+        })
+
+        // uploadTask.onProgressUpdate((res) => {
+        //   console.log('上传进度', res.progress)
+        //   console.log('已经上传的数据长度', res.totalBytesSent)
+        //   console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
+        // })
+    }
+});

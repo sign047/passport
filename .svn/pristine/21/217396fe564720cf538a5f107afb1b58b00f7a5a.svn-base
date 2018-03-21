@@ -1,0 +1,4 @@
+<view class="user-wrapper">
+    <view class="flexbox between user" catchtap="toPhone">手机号<text class="phone-txt">{{phoneTxt}}</text><image  src="../../images/right.png" class="radius"></image></view>
+    <view class="flexbox between user" catchtap="toFeedBack">意见反馈<image  src="../../images/right.png" class="radius"></image></view>
+</view>

@@ -1,0 +1,72 @@
+
+<view class="align passport-list">
+    <view class='blue-circle' wx:if="{{passportList.length > 0}}"></view>
+    <view class="s-circle"></view>
+    <view class="sm-circle"></view>
+    <view class="no-visa" wx:if="{{passportList.length === 0}}" catchtap="goPic" data-index="0">
+        <image class="photo" src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/50054719619748947.png"></image>
+        <view class="point flexbox">
+           <text># 护照随身携带</text><text># 全家护照共享</text><text># 护照到期提醒</text>
+        </view>
+    </view>
+    <view class="t-wrapper" wx:if="{{passportList.length > 0}}" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchend">
+        <view class="passport-item {{name[idx]}}"
+              catchtap="toPort"
+              catchlongpress="del"
+              data-id="{{passport.id}}"
+              data-index="{{idx}}"
+              wx:for="{{passportList}}"
+              wx:for-index="idx"
+              wx:for-item="passport"
+              wx:key="idx"
+              wx:if="{{passportList.length > 0}}">
+            <image class="coupon-img" src="{{passport.huSex == '女' ? girls[idx%4]:boys[idx%3]}}"></image>
+            <view class="passport-box vertical">
+                <text class="info-new medium">{{passport.huName}}</text>
+                <view class="flex between center">
+                    <view class="align">
+                        <text class="info-name">性别</text>
+                        <text class="info-new medium" >{{passport.huSex}}</text>
+                    </view>
+                    <view class="align">
+                        <text class="info-name" >出生地</text>
+                        <text class="info-new max-box medium" >{{passport.hubirthPlace?passport.hubirthPlace:'暂无'}}</text>
+                    </view>
+                </view>
+                <view class="flex between center">
+                    <view class="align">
+                        <text class="info-name">出生日期</text>
+                        <text class="info-new  medium1">{{passport.huBoth}}</text>
+                    </view>
+                </view>
+                <view class="line"></view>
+                <view class="flex between center">
+                    <view class="align">
+                        <text class="info-name">护照号</text>
+                        <text class="info-new medium">{{passport.huNumber}}</text>
+                    </view>
+                    <view class="align">
+                        <text class="info-name">签发地</text>
+                        <text class="info-new max-box medium">{{passport.huIssueplace}}</text>
+                    </view>
+                </view>
+                <view class="flex between center">
+                    <view class="align">
+                        <text class="info-name">签发日期</text>
+                        <text class="info-new medium1">{{passport.huCreateTime}}</text>
+                    </view>
+                </view>
+                <view class="flex between center">
+                    <view class="align">
+                        <text class="info-name">有效期至</text>
+                        <text class="info-new medium">{{passport.huExpireTime}}</text>
+                    </view>
+                </view>
+            </view>
+            <!--<view class="visaTip1" wx:if="{{passport.visaCount <= 0}}">未添加签证</view>-->
+            <view class="visaTip" >{{passport.visaCount}}个签证
+                <image src="http://7xl2r0.com1.z0.glb.clouddn.com/passport/153913733803882423.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

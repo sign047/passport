@@ -1,0 +1,128 @@
+var util=require('../../utils/util');
+var app=getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+      sex:['男','女'],
+      sexIndex:0,
+      tabArr:['我','配偶','孩子','父母','亲戚','朋友'],
+      huBoth:'请选择你的出生年月',
+      huCreateTime:'请选择你的护照签发日期',
+      huExpireTime:'请选择你的护照有效期',
+      passport:{
+          huNumber:'',
+          huName:'',
+          huPinYin:'',
+          huSex:'',
+          huBoth:'请选择你的出生年月',
+          huIssuePlace:'',
+          huCreateTime:'请选择你的护照签发日期',
+          huExpireTime:'请选择你的护照有效期',
+          huTag:'我'
+      }
+  },
+  onLoad: function (options) {
+    var data=this.data;
+    var sex=data.sex[data.sexIndex];
+    this.setval('huSex',sex);
+  },
+  bindCity:function(e){
+      var value=e.detail.value;
+      this.setval('huIssuePlace',value);
+  },
+  bindName:function(e){
+      var kind= e.currentTarget.dataset.kind;
+      var value=e.detail.value.toUpperCase();
+      this.setval('huName',value);
+  },
+  bindNum:function(e){
+      var kind= e.currentTarget.dataset.kind;
+      var value=e.detail.value.toUpperCase();
+      if(kind === '1'){
+          this.setval('huNumber',value);
+      }else if(kind === '2'){
+          this.setval('huPinYin',value);
+      }
+
+      return {
+          value:value
+      }
+  },
+  bindDateChange: function(e) {
+      var val=e.detail.value.split('-');
+      var time=`${val[0]}年${val[1]}月${val[2]}日`;
+      var value=e.detail.value;
+      var kind= e.currentTarget.dataset.kind;
+      var passport=this.data.passport;
+      switch(kind){
+          case '1':
+              this.setval('huBoth',value);
+              this.setData({
+                  huBoth:time
+              });
+              break;
+          case '2':
+              this.setval('huCreateTime',value);
+              this.setData({
+                  huCreateTime:time
+              });
+              break;
+          case '3':
+              this.setval('huExpireTime',value);
+              this.setData({
+                  huExpireTime:time
+              });
+              break;
+      }
+
+  },
+  setval:function(name,val){
+      var passport=this.data.passport;
+      passport[name]=val;
+      this.setData({
+          passport:passport
+      })
+  },
+  bindSexChange: function(e) {
+        this.setData({
+            sexIndex: e.detail.value
+        });
+        var data=this.data;
+        var sex=data.sex[data.sexIndex];
+        this.setval('huSex',sex);
+  },
+  radioChange: function(e) {
+      var value=e.detail.value;
+      this.setval('huTag',value);
+
+  },
+    savePass:function(){
+      var url=app.globalData.huoLiBase+'savePassPort';
+      var passport=this.data.passport;
+      var authToken=app.globalData.authToken;
+      passport.authToken=authToken;
+      if(!util.check(passport)) return;
+      util.http(url,passport,function(data){
+          var code = data.object;
+          if (code == -1) {
+              app.showModel({
+                  title: '此护照号码已存在',
+                  showCancel: false,
+                  success: function (res) {
+                      if (res.confirm) {
+                          return false;
+                      } else if (res.cancel) {
+                      }
+                  }
+              });
+          } else {
+              wx.redirectTo({
+                  url: `../addsuccess/success?id=${data.object}`
+              })
+          }
+      });
+  }
+});

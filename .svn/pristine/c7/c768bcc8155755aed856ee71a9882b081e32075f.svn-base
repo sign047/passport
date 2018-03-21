@@ -1,0 +1,90 @@
+var util=require('../../utils/util');
+var app=getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+      visaList:[],
+      hidden:false,
+      inputTxt:'',
+      id:''
+  },
+  addVisa:function(){
+      this.setData({
+          hidden:false
+      })
+  },
+  save:function(){
+     var data=app.globalData;
+     var authToken=data.authToken;
+     var id=this.data.id;
+     var url=data.huoLiBase+'saveVisa';
+     var visaList=this.data.visaList;
+     util.http(url,{huId:id,authToken:authToken,visaList:visaList},function(data){
+         wx.redirectTo({
+             url: '../passport/passport?id='+id
+         })
+     })
+  },
+  bindStartChange: function(e) {
+    var index= e.currentTarget.dataset.index;
+    var value=e.detail.value;
+    this.setValue('createTime',value,index);
+  },
+  setValue:function(name,value,index){
+     var list=this.data.visaList;
+         list[index][name]=value;
+         this.setData({
+             visaList:list
+         })
+  },
+  bindEndChange: function(e) {
+      var value=e.detail.value;
+      var index= e.currentTarget.dataset.index;
+      this.setValue('expireTime',value,index);
+  },
+  confirm:function(e){
+      var value=e.detail.value;
+      var list=this.data.visaList;
+      var visa={
+          visaName:value,
+          expireTime:'请选择签证到期时间',
+          createTime:'请选择签证签发时间'
+      };
+      list.push(visa);
+      this.setData({
+          hidden:true,
+          visaList:list,
+          inputTxt:''
+      });
+  },
+  addVisaList:function(arr){
+    var nameArr=[];
+    for(var i=0,len=arr.length;i<len;i++){
+        var visa={
+            visaName:arr[i],
+            expireTime:'请选择签证到期时间',
+            createTime:'请选择签证签发时间'
+        };
+        nameArr.push(visa);
+    }
+    return nameArr;
+  },
+  onLoad: function (options) {
+    const hidden= options.hidden === 'false'? false: true;
+    const checkArr=JSON.parse(options.checkArr);
+    var id=options.id;
+    this.setData({
+        id:id
+    });
+    var visaList=this.addVisaList(checkArr);
+    this.setData({
+        hidden:hidden,
+        visaList:visaList
+    })
+  }
+
+
+});

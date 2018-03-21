@@ -1,0 +1,116 @@
+//app.js
+App({
+  onLaunch: function() {
+      var token=wx.getStorageSync('authToken');
+      if(token){
+          this.globalData.authToken=token;
+      }else{
+          this.login();
+      }
+  },
+  hasPhone:function(){
+      var phone=wx.getStorageSync('hasPhone');
+      if(phone == 1){
+         return true
+      }else{
+          return false;
+      }
+  },
+  login: function(cb) {
+    var that = this;
+    if (!this.isLogin()) {
+        var url=this.globalData.huoLiBase+'loginfo';
+        wx.showLoading({
+            title: '加载中'
+        });
+        wx.login({
+            success: function(res) {
+                if (res.code) {
+                    //发起网络请求
+                    wx.request({
+                        url:url,
+                        data: {
+                            code:res.code
+                        },
+                        method: 'GET',
+                        header: {
+                            'content-type': 'application/json'
+                        },
+                        success:function(res){
+                           var data=res.data;
+                           if(res.statusCode != 200){
+                               wx.hideLoading();
+                               return;
+                           }
+                           if(data.code == 200){
+                               wx.hideLoading();
+                               wx.setStorage({
+                                   key:"authToken",
+                                   data:data.object.authToken
+                               });
+                               that.globalData.authToken=data.object.authToken;
+                               if(!that.hasPhone()){
+                                   // wx.setStorageSync('hasPhone', data.object.phone);
+                                   wx.setStorageSync('hasPhone', 0);
+                                   // that.globalData.hasPhone=data.object.phone;
+                                   that.globalData.hasPhone=0;
+                               }
+                               cb&&cb();
+                           }else{
+                               wx.hideLoading();
+                               // that.showModel({title:data.content,showCancel:false});
+                           }
+                        },
+                        fail:function(err){
+                            wx.hideLoading();
+                            that.showModel({title:'数据获取失败',content:'请检查网络后刷新！',showCancel:false});
+                        }
+                    })
+                } else {
+                    wx.hideLoading();
+                }
+            },
+            fail:function(){
+                wx.hideLoading();
+                that.showModel({title:'登录失败',content:'请下拉刷新！',showCancel:false});
+            }
+        });
+    }else{
+        cb&&cb();
+    }
+  },
+  showToast:function(){
+      wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 1000
+      })
+  },
+  showModel:function(json){
+      wx.showModal({
+          title:json.title?json.title:'',
+          content:json.content?json.content:'',
+          showCancel:json.showCancel?json.showCancel:false,
+          success: function(res) {
+              if (res.confirm) {
+                  json.confirm&&json.confirm()
+              } else if (res.cancel) {
+                  json.cancel&&json.cancel()
+              }
+          }
+      })
+  },
+  isLogin:function(){
+      if(this.globalData.authToken){
+          return true
+      }else{
+          return false
+      }
+  },
+  globalData: {
+      authToken: null,
+      hasPhone:null,
+      huoLiBase: "https://travel.huoli.com/hzgj/"
+      // huoLiBase:'http://192.168.11.211:8080/hzgj/'
+  }
+});

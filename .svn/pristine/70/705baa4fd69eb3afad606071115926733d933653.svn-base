@@ -1,0 +1,17 @@
+<view class="user-wrapper">
+    <view class="avatar vertical">
+        <image src="{{avatarUrl}}"></image>
+        <text wx-if="nickName">{{nickName}}</text>
+    </view>
+    <view class="flexbox user" catchtap="toPhone">
+        <text>手机号</text>
+        <view class="flexbox right-txt between">
+            <text class="phone-txt">{{phoneTxt}}</text>
+            <image  src="../../images/right.png" class="radius"></image>
+        </view>
+    </view>
+    <view class="flexbox between user" catchtap="toFeedBack">
+        <text>意见反馈</text>
+        <image  src="../../images/right.png" class="radius"></image>
+    </view>
+</view>

@@ -1,0 +1,47 @@
+
+
+    <scroll-view class="scroll-view expiry" scroll-y="{{true}}">
+        <view class="visa-info"  wx:for="{{visaList}}" wx:for-item="item" wx:for-index="index">
+            <text class="visa-tit medium">{{item.visaName}}签证</text>
+            <view class="flexbox">
+                <picker mode="date"
+                        class="box"
+                        bindchange="bindStartChange"
+                        start="1900-09-01"
+                        data-index="{{index}}"
+                        end="2050-09-01">
+                    <view class="align">
+                        <text class="label {{item.createTime =='请选择签证签发时间'? 'red':''}}">起始时间</text>
+                        <text class="show-time {{item.createTime =='请选择签证签发时间'?'':'blue'}}">{{item.createTime}}</text>
+                    </view>
+                </picker>
+                <picker mode="date"
+                        class="box"
+                        bindchange="bindEndChange"
+                        start="1900-09-01"
+                        data-index="{{index}}"
+                        end="2050-09-01">
+                    <view class="align">
+                        <text class="label {{ item.expireTime == '请选择签证到期时间' ? 'red':''}}">结束时间</text>
+                        <text class="show-time {{ item.expireTime == '请选择签证到期时间' ? '':'red'}}">{{item.expireTime}}</text>
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="flexbox add-icon" catchtap="addVisa">
+            <image class="circle" src="../../images/circle1.png"></image><text class="add-other medium">添加其他签证</text>
+        </view>
+    </scroll-view>
+    <view class="mask {{hidden ? 'hidden' : 'show'}}" hidden="{{hidden ? true : false}}">
+        <view class="inputbox align">
+            <text class="tit">输入签证国家</text>
+            <view class="input">
+                <input type="text"
+                       placeholder="请输入签证国家 如泰国"
+                       confirm-type="done"
+                       value="{{inputTxt}}"
+                       bindconfirm="confirm" />
+            </view>
+        </view>
+    </view>
+    <view class="btn medium bottom" catchtap="save">保存</view>

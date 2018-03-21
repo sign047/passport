@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="825060c8-d006-4e28-b349-2965e79c3987" name="默认的" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>reload</find>
+      <find>cropper_main_container</find>
+      <find>重新上传</find>
+      <find>showPreview</find>
+      <find>hidden</find>
+      <find>cropperData</find>
+      <find>showCropper</find>
+      <find>src</find>
+      <find>showPre</find>
+      <find>showAction</find>
+      <find>isPre</find>
+      <find>toVisaData</find>
+      <find>重新拍摄</find>
+      <find>preview</find>
+      <find>preHandle</find>
+      <find>visatxt-pre</find>
+      <find>vfId</find>
+      <find>console</find>
+      <find>visa-txt</find>
+      <find>showPreviews</find>
+      <find>visa-num</find>
+      <find>getPicUrl</find>
+      <find>hide</find>
+      <find>page</find>
+      <find>httpLoad</find>
+      <find>passportList</find>
+      <find>savePass</find>
+      <find>fromVisaFile</find>
+      <find>isScanning</find>
+      <find>huBirthPlace</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>passport.huTag</replace>
+      <replace>authToken</replace>
+      <replace>expireTime</replace>
+      <replace>huExpireTime</replace>
+      <replace>huIssuePlace</replace>
+      <replace>id</replace>
+      <replace>#485465</replace>
+      <replace>c</replace>
+      <replace>hideToast</replace>
+      <replace>that</replace>
+      <replace>that.data.dwidth</replace>
+      <replace>,</replace>
+      <replace>u</replace>
+      <replace>o</replace>
+      <replace>i</replace>
+      <replace>a</replace>
+      <replace>n</replace>
+      <replace>base</replace>
+      <replace>basicStatus</replace>
+      <replace>baseHome</replace>
+      <replace>baseEmergency</replace>
+      <replace>basePassport</replace>
+      <replace>baseInfo</replace>
+      <replace>input-wrapper</replace>
+      <replace>base-tit</replace>
+      <replace>box show-info</replace>
+      <replace>redirectTo</replace>
+      <replace>&quot;</replace>
+      <replace>580</replace>
+      <replace>.7</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>E:\webFront\wxss\pages</dir>
+      <dir>E:\webFront\wxss</dir>
+      <dir>E:\huoli-all\passport_manager_fe\pages\passportList</dir>
+      <dir>E:\huoli-all\passport_manager_fe</dir>
+      <dir>E:\huoli-all\passport_manager_fe\pages</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pages/camera/camera.js" />
+        <option value="$PROJECT_DIR$/pages/feedBack/feedBack.wxss" />
+        <option value="$PROJECT_DIR$/pages/feedBack/feedBack.wxml" />
+        <option value="$PROJECT_DIR$/pages/feedBack/feedBack.js" />
+        <option value="$PROJECT_DIR$/pages/addChoice/addChoice.wxss" />
+        <option value="$PROJECT_DIR$/pages/addChoice/addChoice.wxml" />
+        <option value="$PROJECT_DIR$/pages/baseInfo/baseInfo.wxml" />
+        <option value="$PROJECT_DIR$/pages/baseInfo/baseInfo.js" />
+        <option value="$PROJECT_DIR$/../myproject/src/utils/tip.js" />
+        <option value="$PROJECT_DIR$/template/form/form.wxss" />
+        <option value="$PROJECT_DIR$/pages/passport/demo.js" />
+        <option value="$PROJECT_DIR$/app.json" />
+        <option value="$PROJECT_DIR$/pages/passport/passport.wxss" />
+        <option value="$PROJECT_DIR$/pages/user/user.js" />
+        <option value="$PROJECT_DIR$/pages/user/user.wxml" />
+        <option value="$PROJECT_DIR$/pages/crop/crop.wxml" />
+        <option value="$PROJECT_DIR$/pages/Marriage/Marriage.wxml" />
+        <option value="$PROJECT_DIR$/pages/assets/assets.wxml" />
+        <option value="$PROJECT_DIR$/pages/pic/pic.wxml" />
+        <option value="$PROJECT_DIR$/pages/dataProgress/dataProgress.wxss" />
+        <option value="$PROJECT_DIR$/pages/dataProgress/dataProgress.wxml" />
+        <option value="$PROJECT_DIR$/app.wxss" />
+        <option value="$PROJECT_DIR$/pages/visaFiles/visaFiles.wxss" />
+        <option value="$PROJECT_DIR$/pages/preview/preview.wxml" />
+        <option value="$PROJECT_DIR$/pages/preview/preview.wxss" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/pages/idCard/idCard.wxml" />
+        <option value="$PROJECT_DIR$/pages/homePage/homePage.wxml" />
+        <option value="$PROJECT_DIR$/template/welCropper/welCropper.js" />
+        <option value="$PROJECT_DIR$/template/welCropper/welCropper.wxss" />
+        <option value="$PROJECT_DIR$/template/welCropper/welCropper.wxml" />
+        <option value="$PROJECT_DIR$/pages/addVisaData/addVisaData.js" />
+        <option value="$PROJECT_DIR$/pages/dataProgress/dataProgress.js" />
+        <option value="$PROJECT_DIR$/pages/Marriage/Marriage.js" />
+        <option value="$PROJECT_DIR$/pages/homePage/homePage.js" />
+        <option value="$PROJECT_DIR$/pages/assets/assets.js" />
+        <option value="$PROJECT_DIR$/pages/crop/crop.js" />
+        <option value="$PROJECT_DIR$/pages/preview/preview.js" />
+        <option value="$PROJECT_DIR$/pages/idCard/idCard.js" />
+        <option value="$PROJECT_DIR$/pages/addVisaData/addVisaData.wxml" />
+        <option value="$PROJECT_DIR$/pages/visaFiles/visaFiles.wxml" />
+        <option value="$PROJECT_DIR$/pages/visaFiles/visaFiles.js" />
+        <option value="$PROJECT_DIR$/pages/addVisaData/addVisaData.wxss" />
+        <option value="$PROJECT_DIR$/pages/user/user.wxss" />
+        <option value="$PROJECT_DIR$/pages/passportList/passportList.wxss" />
+        <option value="$PROJECT_DIR$/utils/util.js" />
+        <option value="$PROJECT_DIR$/pages/passportList/passportList.js" />
+        <option value="$PROJECT_DIR$/pages/passportList/passportList.wxml" />
+        <option value="$PROJECT_DIR$/pages/passport/passport.wxml" />
+        <option value="$PROJECT_DIR$/pages/addpassport/addpassport.js" />
+        <option value="$PROJECT_DIR$/pages/passport/passport.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="width" value="814" />
+    <option name="height" value="558" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="passport-测试" type="b2602c69:ProjectViewProjectNode" />
+              <item name="passport-测试" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="passport-测试" type="b2602c69:ProjectViewProjectNode" />
+              <item name="passport-测试" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="passport-测试" type="b2602c69:ProjectViewProjectNode" />
+              <item name="passport-测试" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="E:/huoli-all/passport_manager_fe" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="nodejs_interpreter_path" value="D:/node/node" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/pages/passportList/passportList.wxss" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\webFront\wxss\utils" />
+      <recent name="E:\webFront\wxss\pages\passport" />
+      <recent name="E:\webFront\wxss\pages\passportList" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\chenpeng\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="825060c8-d006-4e28-b349-2965e79c3987" name="默认的" comment="" />
+      <created>1501119866281</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1501119866281</updated>
+      <workItem from="1501119867674" duration="55567000" />
+      <workItem from="1501466490850" duration="6742000" />
+      <workItem from="1501482046749" duration="228318000" />
+      <workItem from="1502255517647" duration="11673000" />
+      <workItem from="1502270866733" duration="1101000" />
+      <workItem from="1502348315508" duration="21981000" />
+      <workItem from="1502674598929" duration="499000" />
+      <workItem from="1502702767681" duration="75292000" />
+      <workItem from="1503280153261" duration="63240000" />
+      <workItem from="1503480382456" duration="4799000" />
+      <workItem from="1503541285967" duration="50132000" />
+      <workItem from="1503884231684" duration="106366000" />
+      <workItem from="1504239472109" duration="6267000" />
+      <workItem from="1504257456116" duration="674000" />
+      <workItem from="1504490631737" duration="18870000" />
+      <workItem from="1504675816344" duration="4893000" />
+      <workItem from="1505093106494" duration="69692000" />
+      <workItem from="1510896655024" duration="6192000" />
+      <workItem from="1511146820459" duration="1401000" />
+      <workItem from="1513051170501" duration="5355000" />
+      <workItem from="1513071351111" duration="4760000" />
+      <workItem from="1513131171509" duration="48268000" />
+      <workItem from="1513304665505" duration="19800000" />
+      <workItem from="1513563569861" duration="71866000" />
+      <workItem from="1513822862279" duration="33378000" />
+      <workItem from="1514167869043" duration="23001000" />
+      <workItem from="1514254420483" duration="28201000" />
+      <workItem from="1514340997378" duration="83424000" />
+      <workItem from="1514861471235" duration="5999000" />
+      <workItem from="1514870910190" duration="290000" />
+      <workItem from="1514871509082" duration="4109000" />
+      <workItem from="1514876694050" duration="12222000" />
+      <workItem from="1514947482602" duration="22510000" />
+      <workItem from="1515035149878" duration="29549000" />
+      <workItem from="1515132321464" duration="15330000" />
+      <workItem from="1515379622657" duration="67359000" />
+      <workItem from="1515590175999" duration="662000" />
+      <workItem from="1515638617651" duration="1535000" />
+      <workItem from="1515650004436" duration="50000" />
+      <workItem from="1515650498076" duration="217000" />
+      <workItem from="1515654624245" duration="22000" />
+      <workItem from="1515995665681" duration="9533000" />
+      <workItem from="1516243233511" duration="20095000" />
+      <workItem from="1516329965219" duration="16848000" />
+      <workItem from="1516587978233" duration="81398000" />
+      <workItem from="1516933816965" duration="12980000" />
+      <workItem from="1516958837102" duration="4772000" />
+      <workItem from="1517197094051" duration="88015000" />
+      <workItem from="1517799694444" duration="53039000" />
+      <workItem from="1517987178463" duration="4357000" />
+      <workItem from="1518074971747" duration="3816000" />
+      <workItem from="1518080562186" duration="2741000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1509200000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22410148" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982457" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32865497" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32865497" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.425731" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23308668" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982457" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32865497" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32865497" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.425731" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/../wxdemo/pages/welcome/welcome.js</url>
+          <line>111</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/passport/passport.js</url>
+          <line>469</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/template/welCropper/welCropper.js</url>
+          <line>565</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/baseInfo/baseInfo.js</url>
+          <line>70</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/baseEmergency/baseEmergency.js</url>
+          <line>70</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/baseInfo/baseInfo.js</url>
+          <line>154</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/passportList/passportList.js</url>
+          <line>437</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/passportList/passportList.js</url>
+          <line>277</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/template/welCropper/welCropper.js</url>
+          <line>325</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/template/welCropper/welCropper.js</url>
+          <line>299</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/visaFiles/visaFiles.js</url>
+          <line>36</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/crop/crop.js</url>
+          <line>80</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/assets/assets.js</url>
+          <line>70</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/idCard/idCard.js</url>
+          <line>11</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/homePage/homePage.js</url>
+          <line>59</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/Marriage/Marriage.js</url>
+          <line>57</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="23" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://E:/360Downloads/animate.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3348">
+          <caret line="3208" column="43" lean-forward="false" selection-start-line="3208" selection-start-column="31" selection-end-line="3208" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/user/user.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/wxApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/360Downloads/vue-element-admin-master/src/views/example/table/table.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1440">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/360Downloads/vue-element-admin-master/src/views/example/table/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/360Downloads/vue-element-admin-master/src/views/example/table/inlineEditTable.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="49" column="25" lean-forward="true" selection-start-line="44" selection-start-column="10" selection-end-line="49" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../huili-taval/src/pages/VisaCountryList.vue" />
+    <entry file="file://$PROJECT_DIR$/pages/visa-expiry/visa-expiry.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/visa-expiry/visa-expiry.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/visa-expiry/visa-expiry.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" column="32" lean-forward="false" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/huili-taval/src/pages/VisaCountryList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="297" column="30" lean-forward="false" selection-start-line="297" selection-start-column="30" selection-end-line="297" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/crop/crop.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/Marriage/Marriage.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/pic/pic.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="103" lean-forward="false" selection-start-line="2" selection-start-column="95" selection-end-line="2" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/dataProgress/dataProgress.wxss" />
+    <entry file="file://$PROJECT_DIR$/pages/dataProgress/dataProgress.wxml" />
+    <entry file="file://$PROJECT_DIR$/app.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="128" column="1" lean-forward="true" selection-start-line="128" selection-start-column="1" selection-end-line="128" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/visaFiles/visaFiles.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="89" column="20" lean-forward="true" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/pic/pic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/preview/preview.wxss" />
+    <entry file="file://$PROJECT_DIR$/pages/assets/assets.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="10" column="51" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/crop/crop.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/idCard/idCard.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/homePage/homePage.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/dataProgress/dataProgress.js" />
+    <entry file="file://$PROJECT_DIR$/template/welCropper/welCropper.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="381" column="20" lean-forward="true" selection-start-line="381" selection-start-column="20" selection-end-line="381" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/assets/assets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="e#1090#1342#0" expanded="false" />
+            <element signature="e#1358#2322#0" expanded="false" />
+            <element signature="e#2340#2990#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/crop/crop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding>
+            <element signature="e#675#1037#0" expanded="false" />
+            <element signature="e#1322#2403#0" expanded="false" />
+            <element signature="e#2419#3105#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/homePage/homePage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding>
+            <element signature="e#1422#2657#0" expanded="false" />
+            <element signature="e#2675#3293#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/Marriage/Marriage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding>
+            <element signature="e#1324#2400#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/welCropper/welCropper.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="72" lean-forward="false" selection-start-line="2" selection-start-column="65" selection-end-line="2" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/welCropper/welCropper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7272">
+          <caret line="482" column="26" lean-forward="false" selection-start-line="482" selection-start-column="26" selection-end-line="482" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!block;n#orientation#0" expanded="false" />
+            <element signature="n#!!block;n#convexHull#0" expanded="false" />
+            <element signature="e#4647#4744#0" expanded="false" />
+            <element signature="e#7848#7917#0" expanded="false" />
+            <element signature="e#8335#8980#0" expanded="false" />
+            <element signature="e#10546#12492#0" expanded="false" />
+            <element signature="e#12654#13818#0" expanded="false" />
+            <element signature="e#15360#16300#0" expanded="false" />
+            <element signature="e#16349#17811#0" expanded="false" />
+            <element signature="e#17864#22092#0" expanded="false" />
+            <element signature="e#19577#21084#0" expanded="false" />
+            <element signature="e#22135#23468#0" expanded="false" />
+            <element signature="e#23555#25707#0" expanded="false" />
+            <element signature="e#25767#26590#0" expanded="false" />
+            <element signature="e#26639#28466#0" expanded="false" />
+            <element signature="e#28530#29473#0" expanded="false" />
+            <element signature="e#29553#33396#0" expanded="false" />
+            <element signature="e#33488#35455#0" expanded="false" />
+            <element signature="e#35516#35863#0" expanded="false" />
+            <element signature="e#35967#36719#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/preview/preview.wxml" />
+    <entry file="file://$PROJECT_DIR$/pages/preview/preview.js" />
+    <entry file="file://$PROJECT_DIR$/pages/idCard/idCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding>
+            <element signature="e#1518#3028#0" expanded="false" />
+            <element signature="e#3046#3714#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/addVisaData/addVisaData.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/addVisaData/addVisaData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="43" column="43" lean-forward="true" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/addVisaData/addVisaData.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="27" column="42" lean-forward="false" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="63" column="21" lean-forward="true" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/visaFiles/visaFiles.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/visaFiles/visaFiles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1536">
+          <caret line="67" column="6" lean-forward="true" selection-start-line="67" selection-start-column="6" selection-end-line="67" selection-end-column="6" />
+          <folding>
+            <element signature="e#2936#3854#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/addVisaData/addVisaData.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/user/user.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/passportList/passportList.wxss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/passportList/passportList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5400">
+          <caret line="477" column="3" lean-forward="false" selection-start-line="477" selection-start-column="3" selection-end-line="477" selection-end-column="3" />
+          <folding>
+            <marker date="1518076488043" expanded="true" signature="13153:13194" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/passport/passport.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="55" column="19" lean-forward="false" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+          <folding>
+            <marker date="1518077011898" expanded="true" signature="7742:7870" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/passportList/passportList.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/passport/passport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="65" column="6" lean-forward="false" selection-start-line="65" selection-start-column="6" selection-end-line="65" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/addpassport/addpassport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="292" column="19" lean-forward="false" selection-start-line="292" selection-start-column="19" selection-end-line="292" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

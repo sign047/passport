@@ -1,0 +1,16 @@
+var util=require('../../utils/util');
+var wxRequest = require('../../utils/wxRequest');
+var app=getApp();
+Page({
+    data:{},
+    toPhoto:function(){
+        wx.navigateTo({
+            url:'../pic/pic'
+        })
+    },
+    toWrite:function(){
+        wx.navigateTo({
+            url:'../addpassport/addpassport'
+        })
+    }
+});

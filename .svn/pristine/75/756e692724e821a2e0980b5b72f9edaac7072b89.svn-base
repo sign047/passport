@@ -1,0 +1,117 @@
+.icon-circle{
+  display:block;
+  height:50rpx;
+  width:50rpx;
+  border-radius:50%;
+  background:#3b48ee;
+  color:#fff;
+  text-align:center;
+  line-height:50rpx;
+  margin-right:32rpx;
+  font-size:40rpx;
+}
+.add-other{
+  color:#3b48ee;
+  font-size:36rpx;
+
+}
+.expiry{
+
+}
+.visa-info .label{
+  color:#b5c0cd;
+  font-size:28rpx;
+
+}
+.visa-tit{
+  color:#3b48ee;
+  font-size:36rpx;
+  margin-bottom:14rpx;
+  display:block;
+
+}
+.show-time{
+  color:#b5c0cd;
+  font-size:28rpx;
+  margin-top:20rpx;
+}
+
+.visa-info{
+  border-bottom:1rpx solid #ececec;
+  padding:26rpx 0 24rpx 32rpx;
+  background:#fff;
+  position:relative;
+  transition:all ease .4s;
+  transform:translatex(0);
+  box-sizing:border-box;
+  width:100%;
+}
+.add-icon{
+  padding-top:36rpx;
+  padding-left:32rpx;
+  background:#fff;
+  padding-bottom:36rpx;
+}
+page{
+  background:#f0f0f0;
+}
+.mask{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:#979797;
+  transition:all ease .5s;
+  z-index:3;
+}
+.inputbox{
+  width:596rpx;
+  height:310rpx;
+  margin:30% auto 0;
+  background:#fff;
+  color:#485465;
+  border-radius:16rpx;
+
+
+
+}
+.tit{
+  text-align:center;
+  margin-top:50rpx;
+  font-size:40rpx;
+}
+.input{
+  padding-left:10rpx;
+  width:536rpx;
+  border-bottom:1rpx solid #d9dee5;
+  display:block;
+  box-sizing: border-box;
+  margin:0 auto;
+}
+.input input{
+  padding-top:80rpx;
+}
+.show{
+  opacity:1;
+  visibility:visible;
+}
+.hidden{
+  opacity:0;
+  visibility:hidden;
+}
+.bottom{
+  position:fixed;
+  left:50%;
+  transform:translate3d(-50%,0,0);
+  bottom:48rpx;
+}
+.info-right{
+  border-left:1px solid #d1d6d8;
+  padding-left:40rpx;
+  box-sizing: border-box;
+}
+.scroll-view{
+  background:#f0f0f0;
+  height:1000rpx;
+}

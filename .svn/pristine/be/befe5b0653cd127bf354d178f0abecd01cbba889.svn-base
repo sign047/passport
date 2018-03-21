@@ -1,0 +1,48 @@
+page{
+  background:#f0f0f0;
+}
+.add-visa{
+  padding:0 32rpx;
+}
+.add-tit{
+  color:#a4b0c0;
+  font-size:30rpx;
+  text-align:center;
+  width:100%;
+  padding:32rpx 0 20rpx;
+}
+.checkwrap{
+  border-radius:16rpx;
+  background:#fff;
+  padding:50rpx 0 24rpx 50rpx;
+}
+
+.checkbox{
+  margin-bottom:40rpx;
+}
+
+.checkbox checkbox{
+  margin-right:24rpx;
+  display:block;
+
+}
+.icon-circle{
+  display:block;
+  height:50rpx;
+  width:50rpx;
+  border-radius:50%;
+  background:#3b48ee;
+  color:#fff;
+  text-align:center;
+  line-height:50rpx;
+  margin-right:32rpx;
+  font-size:40rpx;
+}
+.add-other{
+  color:#3b48ee;
+  font-size:36rpx;
+
+}
+.next{
+  margin:60rpx auto 0;
+}

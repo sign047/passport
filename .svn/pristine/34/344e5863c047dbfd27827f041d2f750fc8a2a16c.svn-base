@@ -1,0 +1,3 @@
+<view class="vertical">
+    <text class="btn medium photo-btn" catchtap="showAction">拍照</text>
+</view>

@@ -1,0 +1,19 @@
+.radius{
+  color:#a4b0c0;
+  margin-right:28rpx;
+  height:24rpx;
+  width:14rpx;
+  display:block;
+}
+.user{
+  color:#000;
+  font-size:24rpx;
+  border-top:1px solid #ccc;
+  padding:30rpx 20rpx;
+}
+
+.user .phone-txt{
+  color:#ccc;
+  font-size:20rpx;
+
+}

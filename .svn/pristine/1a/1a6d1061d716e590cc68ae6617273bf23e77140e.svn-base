@@ -1,0 +1,22 @@
+.radius{
+  color:#a4b0c0;
+  margin-right:28rpx;
+  height:24rpx;
+  width:14rpx;
+  display:block;
+}
+.user{
+  color:#000;
+  font-size:30rpx;
+  border-top:1px solid #e5e5e5;
+  padding:30rpx 20rpx;
+}
+
+.user .phone-txt{
+  color:#bfbfbf;
+  font-size:26rpx;
+
+}
+.user-wrapper{
+  padding-left:28rpx;
+}

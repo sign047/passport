@@ -1,0 +1,19 @@
+
+<view class="expiry">
+    <view class="align editform">
+        <view class="flexbox p">
+            <text class="label">护照号码</text><input class="box" placeholder-style="color:#c2c2c2" placeholder="{{numPlace}}" />
+        </view>
+    </view>
+    <view class="editform">
+        <view class="medium tabtit">为此护照选择一个标签</view>
+        <radio-group class="radio-group" bindchange="radioChange">
+            <view class="flex radio-item wrap">
+                <label class="radio tab {{huTag == itemName?'active' :''}}" wx:for="{{tabArr}}" wx:for-index="idx" wx:for-item="itemName">
+                    <radio class="none" value="{{itemName}}" />{{itemName}}
+                </label>
+            </view>
+        </radio-group>
+    </view>
+    <text class="medium btn saveBtn" catchtap="topassport">保存</text>
+</view>

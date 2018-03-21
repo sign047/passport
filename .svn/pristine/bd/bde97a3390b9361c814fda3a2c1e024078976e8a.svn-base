@@ -1,0 +1,97 @@
+
+<view class="addport">
+  <view class="align editform">
+    <view class="flexbox p">
+      <text class="label">护照号码</text><input
+            bindinput="bindNum"
+            class="box"
+            placeholder-style="color:#c2c2c2"
+            data-kind="1"
+            placeholder="请输入你的护照号码" />
+    </view>
+    <view class="flexbox p">
+      <text class="label">中文姓名</text><input bindblur="bindName"
+                                            placeholder-style="color:#c2c2c2"
+                                            class="box"
+                                            placeholder="请输入你的中文姓名" />
+    </view>
+    <view class="flexbox p">
+      <text class="label">姓名拼音</text><input
+            bindinput="bindNum"
+            placeholder-style="color:#c2c2c2"
+            class="box"
+            data-kind="2"
+            placeholder="请输入你的姓名拼音"  />
+    </view>
+    <view class="flexbox p">
+      <picker bindchange="bindSexChange" value="{{sexIndex}}" range="{{sex}}" class="box">
+        <view class="flexbox">
+          <text class="label">性别</text><text class="show-info">{{sex[sexIndex]}}</text>
+        </view>
+      </picker>
+    </view>
+    <view class="flexbox p">
+      <picker mode="date" class="box"
+              value="{{passport.huBoth}}"
+              start="1900-09-01"
+              end="2050-09-01"
+              data-kind='1'
+              bindchange="bindDateChange" >
+        <view class="flexbox">
+          <text class="label">出生年月</text>
+          <text class="show-info {{huBoth ==='请选择你的出生年月'? 'place':''}}">{{huBoth}}</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="align editform middle">
+    <view class="flexbox p">
+      <text class="label">签发地</text><input class="box"
+                                           placeholder-style="color:#c2c2c2"
+                                           bindblur="bindCity"
+                                           placeholder="请输入你的护照签发地" />
+    </view>
+    <view class="flexbox p">
+      <picker mode="date"
+              class="box"
+              value="{{passport.huCreateTime}}"
+              start="1980-09-01"
+              data-kind='2'
+              end="2050-09-01"
+              bindchange="bindDateChange" >
+        <view class="flexbox">
+          <text class="label">签发日期</text>
+          <text class="show-info {{huCreateTime ==='请选择你的护照签发日期'? 'place':''}}">{{huCreateTime}}</text>
+        </view>
+      </picker>
+    </view>
+    <view class="flexbox p">
+      <picker mode="date"
+              class="box"
+              value="{{passport.huExpireTime}}"
+              start="1980-09-01"
+              data-kind='3'
+              end="2050-09-01"
+              bindchange="bindDateChange" >
+        <view class="flexbox">
+          <text class="label">有效期至</text>
+          <text class="show-info {{huExpireTime ==='请选择你的护照有效期'? 'place':''}}">{{huExpireTime}}</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!--<view class="editform">-->
+    <!--<view class="medium tabtit">为此护照选择一个标签</view>-->
+    <!--<radio-group class="radio-group" bindchange="radioChange">-->
+      <!--<view class="flex radio-item wrap">-->
+        <!--<label class="radio tab {{passport.huTag == itemName?'active' :''}}" wx:for="{{tabArr}}" wx:for-index="idx" wx:for-item="itemName">-->
+          <!--<radio class="none" value="{{itemName}}" />{{itemName}}-->
+        <!--</label>-->
+      <!--</view>-->
+    <!--</radio-group>-->
+  <!--</view>-->
+  <text class="tiptext">*你的信息我们不会用作其他用途,只有你或者你授权的人才可以查看</text>
+  <text class="saveBtn medium" catchtap="savePass">保存</text>
+</view>

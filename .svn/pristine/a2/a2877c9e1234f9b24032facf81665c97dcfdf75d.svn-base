@@ -1,0 +1,121 @@
+
+function http(url,data,callBack) {
+  showLoad();
+  wx.request({
+    url: url,
+    method: 'GET',
+    data:data,
+    header: {
+        'content-type':'application/json'
+    },
+    success:function(res){
+          var data=res.data;
+
+          if(res.statusCode != 200){
+              hideLoad();
+              return;
+          }
+          if(data.code == 200){
+              callBack(data);
+              hideLoad();
+          }else{
+              hideLoad();
+              // showModel({title:data.content,showCancel:false});
+          }
+      },
+    fail:function(err){
+       hideLoad();
+       // showModel({title:'网络出错了',showCancel:false});
+    }
+  })
+}
+function showLoad(){
+    wx.showLoading({
+        title: '加载中',
+        mask:true
+    })
+}
+function hideLoad(){
+    wx.hideLoading();
+}
+function showToast(){
+    wx.showToast({
+        title: '成功',
+        icon: 'success',
+        duration: 1000
+    })
+}
+function toDate(time){
+    var str=new Date(time).toLocaleDateString(),
+        strArr=str.split('/');
+    return `${strArr[0]}年${strArr[1]}月${strArr[2]}日`;
+}
+function toDate2(time){
+    var str=new Date(time).toLocaleDateString(),
+        strArr=str.split('/');
+    return `${strArr[0]}.${strArr[1]}.${strArr[2]}`;
+}
+function showModel (json){
+    wx.showModal({
+        title:json.title?json.title:'',
+        content:json.content?json.content:'',
+        showCancel:json.showCancel?json.showCancel:true,
+        success: function(res) {
+            if (res.confirm) {
+                json.confirm&&json.confirm()
+            } else if (res.cancel) {
+                json.cancel&&json.cancel()
+            }
+        }
+    })
+}
+function matchTime(str1,kind){
+    var n1=str1;
+    var n2=new Date().getTime();
+    if(n1-n2<0){
+      if(kind == 1){
+          return '护照已过期'
+      }
+      if(kind == 2){
+          return '签证已过期'
+      }
+
+    }
+    else{
+      var expire=n1-n2;
+      return  formatTime(expire);
+    }
+}
+function setTitle(title){
+    wx.showNavigationBarLoading();
+    wx.setNavigationBarTitle({
+        title:title,
+        success:function(){
+            wx.hideNavigationBarLoading();
+        },
+        complete:function(){
+            wx.hideNavigationBarLoading();
+        }
+    })
+}
+
+function formatTime(time){
+  time=Math.floor(time/1000);
+  var ds=86400;
+  var ms=86400*365/12;
+  var ys=86400*365;
+  var year=Math.floor(time/ys);
+      time=time%ys;
+  var month=Math.floor(time/ms);
+      time=time%ms;
+  var day=Math.floor(time/ds);
+  return `${year}年${month}月${day}日`;
+}
+
+module.exports = {
+  http: http,
+  matchTime:matchTime,
+  toDate:toDate,
+  toDate2:toDate2,
+  setTitle:setTitle
+};

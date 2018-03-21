@@ -1,0 +1,113 @@
+//app.js
+App({
+  onLaunch: function() {
+      var token=wx.getStorageSync('authToken');
+      this.showModel({title:token,showCancel:false});
+      if(token){
+          this.globalData.authToken=token;
+      }else{
+          this.login();
+      }
+  },
+  hasPhone:function(){
+      var phone=wx.getStorageSync('hasPhone');
+      if(phone == 1){
+         return true
+      }else{
+          return false;
+      }
+  },
+  login: function(cb) {
+    var that = this;
+    if (!this.isLogin()) {
+        var url=this.globalData.huoLiBase+'loginfo';
+        wx.showLoading({
+            title: '加载中'
+        });
+        wx.login({
+            success: function(res) {
+                that.showModel({title:1,showCancel:false});
+                if (res.code) {
+                    console.log(res);
+                    // that.showModel({title:String(res.code),showCancel:false});
+                    //发起网络请求
+                    wx.request({
+                        url:url,
+                        data: {
+                            code: res.code
+                        },
+                        success:function(res){
+                           var data=res.data;
+                           if(res.statusCode != 200){
+                               wx.hideLoading();
+                               return;
+                           }
+                           if(data.code == 200){
+                               that.showModel({title:2,showCancel:false});
+                               wx.setStorage({
+                                   key:"authToken",
+                                   data:data.object.authToken
+                               });
+                               that.globalData.authToken=data.object.authToken;
+                               if(!that.hasPhone()){
+                                   wx.setStorage({
+                                       key:"hasPhone",
+                                       data:data.object.phone
+                                   });
+                                   that.globalData.hasPhone=data.object.phone;
+                               }
+                           }else{
+                               that.showModel({title:data.content,showCancel:false});
+                           }
+                           wx.hideLoading();
+                        },
+                        fail:function(err){
+                            wx.hideLoading();
+                            that.showModel({title:'网络出错了',showCancel:false});
+                        }
+                    })
+                } else {
+                    wx.hideLoading();
+                    that.showModel({title:'获取用户登录态失败！' + res.errMsg});
+                }
+            },
+            fail:function(){
+                that.showModel({title:'获取用户登录态失败！' + res.errMsg});
+            }
+        });
+    }
+  },
+  showToast:function(){
+      wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 1000
+      })
+  },
+  showModel:function(json){
+      wx.showModal({
+          title:json.title?json.title:'',
+          content:json.content?json.content:'',
+          showCancel:json.showCancel?json.showCancel:false,
+          success: function(res) {
+              if (res.confirm) {
+                  json.confirm&&json.confirm()
+              } else if (res.cancel) {
+                  json.cancel&&json.cancel()
+              }
+          }
+      })
+  },
+  isLogin:function(){
+      if(this.globalData.authToken){
+          return true
+      }else{
+          return false
+      }
+  },
+  globalData: {
+      authToken: null,
+      hasPhone:null,
+      huoLiBase: "https://hzgj.133.cn/hzgj/"
+  }
+});

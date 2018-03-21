@@ -1,0 +1,77 @@
+
+{
+  "pages": [
+    "pages/passportList/passportList",
+    "pages/passport/passport",
+    "pages/idCard/idCard",
+    "pages/baseEmergency/baseEmergency",
+    "pages/addpassport/addpassport",
+    
+    "pages/user/user",
+    "pages/baseHome/baseHome",
+  
+      "pages/addVisaData/addVisaData",
+      "pages/baseInfo/baseInfo",
+    
+  
+    "pages/basePassport/basePassport",
+      "pages/homePage/homePage",
+    
+     "pages/Marriage/Marriage",
+    
+    "pages/baseApplication/baseApplication",
+   
+   
+    "pages/assets/assets",
+    "pages/crop/crop",
+    "pages/pic/pic",
+   
+    "pages/visaFiles/visaFiles",
+    "pages/addChoice/addChoice",
+    "pages/addVisa/addVisa",
+    "pages/login/login",
+    "pages/feedBack/feedBack",
+    "pages/changePhone/changePhone",
+    "pages/visa-expiry/visa-expiry",
+    "pages/addsuccess/success"
+  ],
+  "window": {
+    "navigationBarTitleText": "护照管家",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#cacaca",
+    "selectedColor": "#000",
+    "backgroundColor": "#fff",
+    "borderStyle": "#fff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/passportList/passportList",
+        "text": "护照",
+        "iconPath": "images/visa-icon1.png",
+        "selectedIconPath": "images/icon-6.png"
+      },
+      {
+        "pagePath": "pages/addChoice/addChoice",
+        "iconPath": "images/icon-3.png",
+        "selectedIconPath": "images/icon-2.png",
+        "text": "添加"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/iconssss.png",
+        "selectedIconPath": "images/icon-4.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

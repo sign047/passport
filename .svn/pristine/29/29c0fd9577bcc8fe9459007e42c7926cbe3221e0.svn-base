@@ -1,0 +1,5 @@
+.back-txt{
+  border:1rpx solid #000;
+  margin:40rpx 0;
+  padding:20rpx 0 0 20rpx;
+}

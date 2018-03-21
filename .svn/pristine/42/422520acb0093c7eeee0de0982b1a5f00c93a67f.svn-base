@@ -1,0 +1,4 @@
+<view class="vertical">
+    <textarea class="back-txt"  placeholder="请输入您的联系方式和宝贵意见" />
+    <button class="btn medium">保存</button>
+</view>

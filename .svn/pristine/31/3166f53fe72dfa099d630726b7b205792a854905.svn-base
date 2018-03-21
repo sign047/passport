@@ -1,0 +1,15 @@
+<view class="align add-visa">
+    <text class="add-tit">如有以下签证,可多选快速创建</text>
+    <view class="checkwrap">
+        <checkbox-group bindchange="checkboxChange" class="align">
+            <label class="checkbox flexbox" wx:for="{{items}}" wx:for-index="index" wx:key="index">
+                <checkbox value="{{item.name}}" checked="{{items.checked}}" />{{item.name}}签证
+            </label>
+        </checkbox-group>
+        <view class="flexbox" catchtap="toExpiry">
+            <image class="circle" src="../../images/circle1.png"></image>
+            <text class="add-other medium">添加其他签证</text>
+        </view>
+    </view>
+    <text class="btn medium next" catchtap="next">下一步</text>
+</view>

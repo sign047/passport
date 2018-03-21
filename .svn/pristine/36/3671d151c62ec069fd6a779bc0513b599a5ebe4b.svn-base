@@ -1,0 +1,27 @@
+/* pages/pic/pic.wxss */
+.photo-btn{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate3d(-50%,-50%,0);
+}
+page{
+  background:#f0f0f0;
+}
+.demo{
+  display:block;
+  width:710rpx;
+  height:454rpx;
+  margin:44rpx 0 19rpx;
+}
+.tips{
+  color:#4a4a4a;
+  font-size:26rpx;
+  text-align:center;
+}
+.next{
+  position:absolute;
+  bottom:110rpx;
+  left:50%;
+  transform:translatex(-50%);
+}

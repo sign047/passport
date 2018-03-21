@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/passportList/passportList",
+    "pages/pic/pic",
+    "pages/addChoice/addChoice",
+    "pages/user/user",
+    "pages/passport/passport",
+    "pages/addVisa/addVisa",
+    "pages/login/login",
+    "pages/feedBack/feedBack",
+    "pages/changePhone/changePhone",
+    "pages/addpassport/addpassport",
+    "pages/visa-expiry/visa-expiry",
+    "pages/addsuccess/success"
+  ],
+  "window": {
+    "navigationBarTitleText": "护照管家",
+    "navigationBarBackgroundColor":"#485465"
+  },
+  "tabBar": {
+    "color":"#c5c5c5",
+    "selectedColor":"#485465",
+    "backgroundColor":"#fff",
+    "borderStyle":"#fff",
+    "position":"bottom",
+    "list": [{
+      "pagePath": "pages/passportList/passportList",
+      "text": "护照",
+      "iconPath":"images/icon1.png",
+      "selectedIconPath":"images/icon2.png"
+    }, {
+      "pagePath":"pages/addChoice/addChoice",
+      "iconPath":"images/icon6.png",
+      "selectedIconPath":"images/icon5.png",
+      "text":"添加"
+
+    },{
+      "pagePath":"pages/user/user",
+      "text": "我的",
+      "iconPath":"images/icon3.png",
+      "selectedIconPath":"images/icon4.png"
+    }]
+  },
+  "networkTimeout":{
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

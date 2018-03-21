@@ -1,0 +1,70 @@
+@import "../../template/form/form.wxss";
+@import "../visa-expiry/visa-expiry.wxss";
+page{
+  background:#f0f0f0;
+}
+
+.outtime{
+  border-radius:8rpx;
+  background:#a8b4c4;
+  color:#fff;
+  height:44rpx;
+  width:160rpx;
+  font-size:24rpx;
+  line-height:44rpx;
+  text-align:center;
+  margin-right:28rpx;
+
+}
+.add-icon{
+  background:#fff;
+  padding:26rpx 0 26rpx 32rpx;
+}
+.icon-circle{
+  display:block;
+  height:40rpx;
+  width:40rpx;
+  border-radius:50%;
+  background:#3b48ee;
+  color:#fff;
+  text-align:center;
+  line-height:40rpx;
+  margin-right:22rpx;
+  font-size:30rpx;
+}
+.add-other{
+  color:#485465;
+  font-size:30rpx;
+
+}
+.showtxt{
+  color:#a4b0c0;
+  font-size:30rpx;
+  margin-left:60rpx;
+}
+
+.scrollview{
+  height:1100rpx;
+}
+.share{
+  margin:50rpx auto 30rpx;
+  line-height:normal;
+}
+.visainfo-list{
+  background:#fff;
+  padding-left:14rpx;
+}
+.info-left{
+  margin-right:170rpx;
+}
+.end{
+  align-items:flex-end !important;
+}
+.border-bottom{
+  border-bottom:1rpx solid #ececec !important;
+}
+.del{
+  margin:0 auto;
+  background:#fff;
+  color:#485465;
+}

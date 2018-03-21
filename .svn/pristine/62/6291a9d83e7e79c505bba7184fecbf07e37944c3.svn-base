@@ -1,0 +1,39 @@
+var util=require('../../utils/util');
+var app=getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+      huIssueplace:'',
+      cityPlace:'',
+      hId:''
+  },
+  topassport:function(){
+    var url=util.globalData.huoLiBase+'updatePassPort',
+        authToken=util.globalData.authToken,
+        huIssueplace=this.data.huIssueplace,
+        hId=this.data.hId;
+    util.http(url,{authToken:authToken,huIssueplace:huIssueplace,hId:hId},function(){
+        wx.redirectTo({
+            url: '../passport/passport?id='+hId
+        })
+    });
+  },
+  bindCity:function(e){
+    var value=e.detail.value;
+    this.setData({
+        huIssueplace:value
+    })
+  },
+  onLoad: function (options) {
+     this.setData({
+         huIssueplace:options.huIssueplace,
+         cityPlace:options.huIssueplace,
+         hId:options.id
+     })
+  }
+
+
+});

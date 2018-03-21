@@ -1,0 +1,45 @@
+var util = require('../../utils/util');
+var app=getApp();
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        hId:'',
+        huTag: '',
+        numPlace:'',
+        huNumber:'',
+        tabArr:['我','配偶','孩子','父母','亲戚','朋友']
+    },
+    radioChange: function (e) {
+        this.setData({
+            huTag: e.detail.value
+        })
+    },
+    topassport: function () {
+        var url = app.globalData.huoLiBase + 'updatePassPort',
+            authToken = app.globalData.authToken,
+            huNumber = this.data.huNumber,
+            huTag=this.data.huTag,
+            hId = this.data.hId;
+        var data={authToken: authToken, huNumber: huNumber, huTag: huTag, hId: hId};
+        if(!util.check(data)) return;
+        util.http(url,data, function () {
+            wx.redirectTo({
+                url: '../passport/passport?id=' + hId
+            })
+        });
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        this.setData({
+            huNumber: options.huNumber,
+            huTag: options.huTag,
+            hId:options.id,
+            numPlace:options.huNumber
+        })
+    }
+});

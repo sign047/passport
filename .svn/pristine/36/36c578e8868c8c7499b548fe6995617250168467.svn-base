@@ -1,0 +1,12 @@
+
+<view class="expiry">
+    <view class="align editform">
+        <view class="flexbox p">
+            <text class="label">中文姓名</text><input bindinput="CnName" placeholder-style="color:#c2c2c2" placeholder="{{cnplace}}"  class="box" />
+        </view>
+        <view class="flexbox p">
+            <text class="label">英文姓名</text><input bindinput="EnName" placeholder-style="color:#c2c2c2" placeholder="{{enplace}}" class="box"  />
+        </view>
+    </view>
+    <view class="btn medium saveBtn" catchtap="topassport">保存</view>
+</view>

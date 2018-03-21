@@ -1,0 +1,24 @@
+<view class="align login">
+    <text class="txt">当前手机号码为：<text>152****7307</text></text>
+    <view class="codebox">
+        <view class="flexbox">
+            <text>新手机号</text>
+            <view class="flexbox between">
+                <input type="number"
+                       bindinput="getPhone"
+                       class="phone"
+                       placeholder="请输入正确的手机号码"/>
+                <text catchtap="getCode" wx:if="{{second<=0}}" class="code">获取验证码</text>
+                <text wx:if="{{second > 0}}" class="code codegrey">{{second}}</text>
+            </view>
+
+        </view>
+        <view class="flexbox">
+            <text>验证码</text>
+            <input type="number"
+                   bindinput="setCode"
+                   placeholder="输入您收到的验证码"/>
+        </view>
+    </view>
+    <text class="btn medium" >确定更换</text>
+</view>

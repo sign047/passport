@@ -1,0 +1,5 @@
+<view>
+    <text class="flex">微信昵称</text>
+    <view class="flexbox between user" catchtap="toPhone">手机号<text class="phone-txt">绑定手机开启护照到期短信提醒功能</text><image  src="../../images/right.png" class="radius"></image></view>
+    <view class="flexbox between user" catchtap="toFeedBack">意见反馈<image  src="../../images/right.png" class="radius"></image></view>
+</view>

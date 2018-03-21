@@ -1,0 +1,57 @@
+.login{
+  padding:40rpx 40rpx 0;
+}
+
+.login .txt{
+  color:#485465;
+  font-size:40rpx;
+}
+.codebox{
+  border-radius:16rpx;
+  background:#fff;
+  width:100%;
+  padding:12rpx 62rpx 0;
+  box-sizing:border-box;
+  margin-top:36rpx;
+  margin-bottom:94rpx;
+}
+.codebox input{
+  font-size:28rpx;
+}
+.codebox text{
+  font-size:28rpx;
+  color:#485465;
+  margin-top:34rpx;
+  display:block;
+  margin-bottom:30rpx;
+}
+.codebox>view{
+  padding-bottom:30rpx;
+}
+page{
+  background:#f0f0f0;
+}
+.top{
+  border-bottom:1rpx solid #f0f0f0;
+  padding:0 !important;
+}
+.code{
+  background:#3b48ee;
+  border-radius:6rpx;
+  padding:6rpx 0;
+  width:220rpx;
+  display:block;
+  margin:0 !important;
+  color:#fff !important;
+  margin-bottom:30rpx !important;
+  text-align:center;
+}
+.codegrey{
+  background:#ccc;
+
+
+}
+.phone{
+  width:100%;
+  padding-bottom:30rpx;
+}

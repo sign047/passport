@@ -1,0 +1,23 @@
+.editform{
+  padding-left:16rpx;
+  background:#fff;
+}
+.editform .label{
+   display:block;
+   width:186rpx;
+   color:#485465;
+   font-size:30rpx;
+   text-indent:16rpx;
+}
+.editform input,.editform .show-info{
+   color:#a4b0c0;
+   font-size:30rpx;
+   padding:26rpx 0;
+}
+.editform .p{
+  border-bottom:1rpx solid #f3f3f3;
+}
+.middle{
+  margin:32rpx 0;
+}
+

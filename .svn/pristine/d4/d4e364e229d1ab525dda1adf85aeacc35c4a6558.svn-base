@@ -1,0 +1,248 @@
+@import "../../template/form/form.wxss";
+@import "../visa-expiry/visa-expiry.wxss";
+page{
+  background:#f0f0f0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.outtime{
+  border-radius:8rpx;
+  background:#485465;
+  color:#fff;
+  height:44rpx;
+  width:210rpx;
+  font-size:24rpx;
+  line-height:44rpx;
+  text-align:center;
+  margin-right:28rpx;
+}
+.add-icon{
+  background:#f0f0f0;
+  height:80rpx;
+  width:684rpx;
+  padding:0 !important;
+  color:#485465;
+  font-size:44rpx;
+  border-radius:10rpx;
+  border:1rpx dotted #485465;
+  text-align:center;
+  margin-top:32rpx;
+}
+.icon-circle{
+  display:block;
+  height:40rpx;
+  width:40rpx;
+  border-radius:50%;
+  background:#485465;
+  color:#fff;
+  text-align:center;
+  line-height:40rpx;
+  margin-right:22rpx;
+  font-size:30rpx;
+}
+.add-other{
+  color:#485465;
+  font-size:30rpx;
+
+}
+.showtxt{
+  color:#a4b0c0;
+  font-size:30rpx;
+  margin-left:60rpx;
+}
+
+.scrollview{
+  height:1100rpx;
+}
+.share{
+  line-height:normal;
+  position:fixed;
+  bottom:40rpx;
+  left:50%;
+  transform:translateX(-50%);
+}
+.visainfo-list{
+  overflow: hidden;
+}
+.info-left{
+  margin-right:90rpx;
+}
+.end{
+  align-items:flex-end !important;
+}
+.border-bottom{
+  border-bottom:1rpx solid #ececec !important;
+}
+.del{
+  margin:0 auto 10rpx;
+  background:#fff;
+  color:#485465;
+}
+.radius{
+  color:#a4b0c0;
+  margin-right:28rpx;
+  height:24rpx;
+  width:14rpx;
+  display:block;
+}
+.head-nav{
+  background:#fff;
+  padding:0 140rpx;
+  color:#7f7f7f;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:32rpx;
+}
+.head-nav .nav{
+  display:block;
+  height:100rpx;
+  line-height:100rpx;
+  box-sizing: border-box;
+  position:relative;
+}
+
+.nav:after{
+  content:'';
+  display:block;
+  background:#fff;
+  position:absolute;
+  left:50%;
+  width:40rpx;
+  bottom:0rpx;
+  transform:translateX(-50%);
+  border-bottom:4rpx solid #fff;
+}
+.nav.active{
+  color:#333;
+}
+.nav.active:after{
+  border-bottom:4rpx solid #485465;
+}
+.delbtn{
+  position:absolute;
+  top:0;
+  height:100%;
+  right:-100px;
+  width:100px;
+  background:red;
+  color:#fff;
+  text-align:center;
+  line-height:190rpx;
+}
+.editform .p {
+  border-bottom:none;
+}
+.passport{
+  border-radius:12rpx;
+  margin:34rpx 28rpx 0 28rpx;
+  background:#fff;
+  overflow: hidden;
+}
+.dle,.edit{
+  padding:30rpx 0;
+  border-top:1rpx solid #d9d9d9;
+  box-sizing:border-box;
+  font-size:28rpx;
+}
+.dle text,.edit text{
+  margin-left:12rpx;
+}
+.dle{
+  border-right:1rpx solid #d9d9d9;
+
+}
+.dle image{
+  height:38rpx;
+  width:36rpx;
+  display:block;
+}
+.edit image{
+  height:36rpx;
+  width:34rpx;
+  display:block;
+}
+.camera{
+  height:344rpx;
+  width:680rpx;
+  position:relative;
+  margin-top:62rpx;
+}
+.camera image{
+  display:block;
+  width:100%;
+  height:100%;
+}
+.camera text{
+  display:block;
+  position:absolute;
+  width:100%;
+  text-align:center;
+  left:50%;
+  bottom:56rpx;
+  transform:translatex(-50%);
+  color:#fff;
+  font-size:40rpx;
+}
+.visa-wraper{
+  box-sizing:border-box;
+  padding:0 28rpx 140rpx;
+}
+.visa-info{
+  border-bottom:1rpx solid #ececec;
+  padding:22rpx 0 20rpx 34rpx;
+  border-radius:10rpx;
+  background:#fff;
+  position:relative;
+  transition:all ease .4s;
+  transform:translatex(0);
+  box-sizing:border-box;
+  width:100%;
+}
+.pen{
+  height:200rpx;
+  width:200rpx;
+  display:block;
+  margin-bottom:60rpx;
+}
+.outtime2{
+  margin-right:20rpx;
+}
+.editform wx-input, .editform .show-info{
+  padding:18rpx 0 !important;
+}
+.t20{
+  padding-top:40rpx !important;
+}
+.b20{
+  padding-bottom:40rpx !important;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.color{
+  color:#485465;
+}
+.novisa{
+  margin-top:40rpx;
+}
+.weui-toptips {
+  position:fixed;
+  -webkit-transform:translateZ(0);
+  transform:translateZ(0);
+  top:0;
+  left:0;
+  right:0;
+  padding:5px;
+  font-size:14px;
+  text-align:center;
+  color:#fff;
+  z-index:5000;
+  word-wrap:break-word;
+  word-break:break-all;
+}
+.weui-toptips_warn {
+  background-color:#e64340;
+}

@@ -1,0 +1,106 @@
+
+<view class="align" >
+    <view class="align editform">
+        <view class="flexbox p" catchtap="toEditNum">
+            <text class="label">护照号码</text><text class="box show-info">{{passport.huNumber}}</text>
+        </view>
+        <view class="flexbox p" catchtap="toEditName">
+            <text class="label">中文姓名</text><text class="box show-info">{{passport.huName}}</text>
+        </view>
+        <view class="flexbox p" catchtap="toEditName">
+            <text class="label">姓名拼音</text><text class="box show-info">{{passport.huPinYin}}</text>
+        </view>
+        <view class="flexbox p" >
+            <picker bindchange="bindSexChange" value="{{sexIndex}}" range="{{sex}}" class="box">
+                <view class="flexbox">
+                    <text class="label">性别</text><text class="show-info">{{huSex}}</text>
+                </view>
+            </picker>
+        </view>
+        <view class="flexbox p">
+            <picker mode="date" class="box"
+                    value="{{bornDate}}"
+                    start="1900-09-01"
+                    end="2050-09-01"
+                    data-kind="1"
+                    bindchange="bindDateChange" >
+                <view class="flexbox">
+                    <text class="label">出生年月</text>
+                    <text class="show-info">{{huBoth}}</text>
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <view class="align editform middle">
+        <view class="flexbox p" catchtap="toEditCity">
+            <text class="label">签发地</text><text class="show-info">{{passport.huIssueplace}}</text>
+        </view>
+        <view class="flexbox p">
+            <picker mode="date" class="box"
+                    value="{{signDate}}"
+                    start="1980-09-01"
+                    data-kind="2"
+                    end="2050-09-01"
+                    bindchange="bindDateChange" >
+                <view class="flexbox">
+                    <text class="label">签发日期</text>
+                    <text class="show-info">{{huCreateTime}}</text>
+                </view>
+            </picker>
+        </view>
+        <view class="flexbox p">
+            <picker mode="date"
+                    class="box"
+                    value="{{effectiveDate}}"
+                    data-kind="3"
+                    start="1980-09-01"
+                    end="2050-09-01"
+                    bindchange="bindDateChange" >
+                <view class="flexbox between">
+                    <view class="flexbox">
+                        <text class="label">有效期至</text>
+                        <text class="show-info">{{huExpireTime}}</text>
+                    </view>
+                    <text class="outtime">{{lastTime}}</text>
+                </view>
+            </picker>
+        </view>
+    </view>
+    <view  class="flexbox add-icon {{visaList.length > 0 ? 'border-bottom':''}}" catchtap="toVisa">
+        <image src="../../images/circle2.png" class="circle"></image>
+        <text class="add-other medium">添加其他签证</text>
+        <text class="showtxt">实时查询你的签证信息</text>
+    </view>
+    <view wx:if="{{visaList.length>0}}" class="visainfo-list">
+        <view class="visa-info"
+              wx:for="{{visaList}}"
+              wx:for-item="item"
+              catchlongtap="del"
+              data-id="{{item.id}}"
+              data-index="{{index}}"
+              wx:for-index="index">
+            <text class="visa-tit medium">{{item.visaName}}签证</text>
+            <view class="flexbox">
+                <!--<picker mode="date" class="" bindchange="bindStartChange" data-id="22" start="1900-09-01" end="2050-09-01" >-->
+                    <view class="align info-left">
+                        <text class="label">起始时间</text>
+                        <text class="show-time blue">{{item.createTime}}</text>
+                    </view>
+                <!--</picker>-->
+                <!--<picker mode="date" class="box" bindchange="bindEndChange" start="1900-09-01" end="2050-09-01">-->
+                    <view class="flexbox between box end">
+                        <view class="align info-right">
+                            <text class="label">结束时间</text>
+                            <text class="show-time red">{{item.expireTime}}</text>
+                        </view>
+                        <text class="outtime">{{item.lastTime}}</text>
+                    </view>
+                <!--</picker>-->
+            </view>
+        </view>
+    </view>
+    <button class="btn medium share" open-type="share" wx:if="{{!isShare}}">与家人共享护照</button>
+    <text class="btn medium share" catchtap="savePort" wx:if="{{isShare}}">保存到我的护照</text>
+    <text class="btn medium del" catchtap="delPort"    wx:if="{{!isShare}}">删除护照</text>
+</view>

@@ -1,0 +1,40 @@
+.radius{
+  color:#a4b0c0;
+  margin-right:-44rpx;
+  height:24rpx;
+  width:14rpx;
+  display:block;
+}
+.user{
+  color:#000;
+  font-size:30rpx;
+  border-bottom:1rpx solid #e5e5e5;
+  padding:30rpx 20rpx;
+}
+.right-txt{
+  flex:1;
+  margin-left:80rpx;
+}
+.user .phone-txt{
+  color:#bfbfbf;
+  font-size:26rpx;
+  text-align:left;
+
+}
+.user-wrapper{
+  padding-left:28rpx;
+  padding-right:54rpx;
+}
+.avatar{
+  margin-bottom:110rpx;
+}
+.avatar image{
+  height:126rpx;
+  width:126rpx;
+  display:block;
+  margin:84rpx 0 30rpx;
+  border-radius:50%;
+}
+.avatar text{
+  color:#000;
+}

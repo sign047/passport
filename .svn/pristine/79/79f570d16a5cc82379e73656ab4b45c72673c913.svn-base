@@ -1,0 +1,117 @@
+@import "../../template/form/form.wxss";
+@import "../visa-expiry/visa-expiry.wxss";
+page{
+  background:#f0f0f0;
+}
+
+.outtime{
+  border-radius:8rpx;
+  background:rgba(168,180,196,.6);
+  color:#fff;
+  height:44rpx;
+  width:210rpx;
+  font-size:24rpx;
+  line-height:44rpx;
+  text-align:center;
+  margin-right:28rpx;
+}
+.add-icon{
+  background:#fff;
+  padding:26rpx 0 26rpx 32rpx;
+}
+.icon-circle{
+  display:block;
+  height:40rpx;
+  width:40rpx;
+  border-radius:50%;
+  background:#3b48ee;
+  color:#fff;
+  text-align:center;
+  line-height:40rpx;
+  margin-right:22rpx;
+  font-size:30rpx;
+}
+.add-other{
+  color:#485465;
+  font-size:30rpx;
+
+}
+.showtxt{
+  color:#a4b0c0;
+  font-size:30rpx;
+  margin-left:60rpx;
+}
+
+.scrollview{
+  height:1100rpx;
+}
+.share{
+  line-height:normal;
+  position:fixed;
+  bottom:40rpx;
+  left:50%;
+  transform:translateX(-50%);
+}
+.visainfo-list{
+  background:#fff;
+  overflow: hidden;
+}
+.info-left{
+  margin-right:150rpx;
+}
+.end{
+  align-items:flex-end !important;
+}
+.border-bottom{
+  border-bottom:1rpx solid #ececec !important;
+}
+.del{
+  margin:0 auto 10rpx;
+  background:#fff;
+  color:#485465;
+}
+.radius{
+  color:#a4b0c0;
+  margin-right:28rpx;
+  height:24rpx;
+  width:14rpx;
+  display:block;
+}
+.head-nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#fff;
+  padding:20rpx 100rpx;
+  color:#485465;
+  border-bottom:1rpx solid #000;
+}
+.head-nav .nav{
+  padding:20rpx 0;
+  display:blocks
+}
+
+.nav:after{
+  content:'';
+  display:block;
+  background:#fff;
+  height:20rpx;
+  border-bottom:1rpx solid #485465;
+}
+.nav.active{
+  color:#3b48ee;
+}
+.nav.active:after{
+  border-bottom:1rpx solid #3b48ee;
+}
+.delbtn{
+  position:absolute;
+  top:0;
+  height:100%;
+  right:-100px;
+  width:100px;
+  background:red;
+  color:#fff;
+  text-align:center;
+  line-height:190rpx;
+}

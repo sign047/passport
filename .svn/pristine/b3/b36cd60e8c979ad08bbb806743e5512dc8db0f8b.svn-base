@@ -1,0 +1,110 @@
+// pages/addsuccess/success.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    items:[{name:'美国',checked:false},{name:'加拿大',checked:false},{name:'申根',checked:false},
+        {name:'英国',checked:false},{name:'澳大利亚',checked:false},{name:'新西兰',checked:false},
+        {name:'日本',checked:false},{name:'新加坡',checked:false}],
+    checkArr:[],
+    id:''
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+      console.log(1);
+    var id=options.id;
+    this.setData({
+        id:id
+    })
+  },
+  toExpiry:function(){
+      var id=this.data.id;
+      console.log(id);
+      wx.redirectTo({
+          url:`../visa-expiry/visa-expiry?hidden=false&id=${id}`
+      })
+  },
+  next:function(e){
+      if(this.data.checkArr.length === 0){
+          wx.showModal({
+              title: '请选择签证国家',
+              success: function(res) {
+                  if (res.confirm) {
+
+                  } else if (res.cancel) {
+
+                  }
+              }
+          });
+          return false;
+      }else{
+          var checkArr= this.data.checkArr;
+          var jsonStr=JSON.stringify(checkArr);
+          var id=this.data.id;
+          wx.redirectTo({
+              url: `../visa-expiry/visa-expiry?checkArr=${jsonStr}&hidden=true&id=${id}`
+          })
+      }
+
+  },
+  checkboxChange:function(e){
+    console.log(e.detail.value);
+    this.setData({
+        checkArr:e.detail.value
+    })
+
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  }
+});

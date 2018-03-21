@@ -1,0 +1,125 @@
+<view class=" box">
+
+    <view class="align head">
+        <text class="tit">HUOLI</text>
+        <text class="title">护照信息</text>
+    </view>
+    <scroll-view class="scroll-view" scroll-y="{{true}}">
+        <view class="scroll align">
+            <view class="passport-item" wx:if="{{passportList.length == 0}}">
+                <image class="star" src="/images/star.png"></image>
+                <view class="flexbox align-normal viebox">
+                    <image class="leftimg" src="/images/boy1.png"></image>
+                    <view class="right">
+                        <view class="flex justify-normal">
+                            <view class="info-name">
+                                <text>姓名</text>
+                            </view>
+                            <text class="info-new">伙力</text>
+                        </view>
+                        <view class="flex justify-normal">
+                            <view class="info-name">
+                                <text>护照号码</text>
+                            </view>
+                            <text class="info-new">E23456789</text>
+                        </view>
+                        <view class="flex justify-normal">
+                            <view class="info-name">
+                                <text>有效期至</text>
+                            </view>
+                            <text class="info-new">2025年05月12日</text>
+                        </view>
+
+                    </view>
+                </view>
+                <view class="flexbox between">
+                    <view class="flexbox">
+                        <image class="loc-icon" src="/images/location.png"></image>
+                        <text class="city">签发地：北京</text>
+                    </view>
+                    <view class="time">
+                        <text>8年3月20天</text>
+                    </view>
+                </view>
+            </view>
+            <view class="passport-item"
+                  catchtap="toPort"
+                  bindtouchstart="setTapStartTime"
+                  catchlongtap="del"
+                  data-id="{{passport.id}}"
+                  data-index="{{idx}}"
+                  wx:for="{{passportList}}"
+                  wx:for-index="idx"
+                  wx:for-item="passport"
+                  wx:key="idx"
+                  wx:if="{{passportList.length > 0}}">
+                <image class="star" src="/images/star.png"></image>
+                <view class="flexbox align-normal">
+                    <image class="leftimg"
+                           src="{{passport.huSex == '男' ? '/images/boy1.png':'/images/girl2.png'}}">
+                    </image>
+                    <view class="right">
+                        <view class="flex justify-normal">
+                            <view class="info-name">
+                                <text>姓名</text>
+                            </view>
+                            <text class="info-new">{{passport.huName}}</text>
+                        </view>
+                        <view class="flex justify-normal">
+                            <view class="info-name">
+                                <text>护照号码</text>
+                            </view>
+                            <text class="info-new">{{passport.huNumber}}</text>
+                        </view>
+                        <view class="flex justify-normal">
+                            <view class="info-name">
+                                <text>有效期至</text>
+                            </view>
+                            <text class="info-new">{{passport.huExpireTime}}</text>
+                        </view>
+
+                    </view>
+                </view>
+                <view class="flexbox between">
+                    <view class="flexbox">
+                        <image class="loc-icon" src="/images/location.png"></image>
+                        <text class="city">签发地：{{passport.huIssueplace}}</text>
+                    </view>
+                    <view class="time">
+                        <text>{{passport.lastTime}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="flexbox tip">
+                <view class="align">
+                    <view class="flexbox">
+                        <icon type="success" size="12" color="rgb(164,176,191)"/>
+                        <text>随身永久存储护照</text>
+                    </view>
+                    <view class="flexbox">
+                        <icon type="success" size="12" color="rgb(164,176,191)"/>
+                        <text>及时提醒护照有效期</text>
+                    </view>
+                </view>
+                <view class="align">
+                    <view class="flexbox">
+                        <icon type="success" size="12" color="rgb(164,176,191)"/>
+                        <text>签证信息实时管理</text>
+                    </view>
+                    <view class="flexbox">
+                        <icon type="success" size="12" color="rgb(164,176,191)"/>
+                        <text>及时提醒签证有效期</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{passportList.length <=1}}" class="addBtn flex" catchtap="toAdd">
+            <text class="strong flex"><text class="strong"></text></text>
+            <text>新建护照信息</text>
+        </view>
+    </scroll-view>
+    <view wx:if="{{passportList.length >=2}}" class="addBtn flex {{passportList.length >=2 ? 'fixed' : ''}}" catchtap="toAdd">
+        <text class=" flex"><text class="strong"></text></text>
+        <text>新建护照信息</text>
+    </view>
+</view>

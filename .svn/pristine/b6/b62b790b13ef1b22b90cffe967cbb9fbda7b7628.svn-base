@@ -1,0 +1,13 @@
+.back-txt{
+  margin:40rpx 0 340rpx;
+  padding:20rpx 0 0 20rpx;
+  background:#fff;
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+
+}
+
+page{
+  background:#f0f0f0;
+}

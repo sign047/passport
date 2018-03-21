@@ -1,0 +1,12 @@
+<view class="vertical">
+    <view  class="camera">
+        <button class="btn-get-user-info"  bindgetuserinfo="onGotUserInfo" data-type="1" open-type="getUserInfo">授权</button>
+        <image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/photo.png"></image>
+        <text>拍摄护照首页快速上传</text>
+    </view>
+    <view class="camera">
+        <button class="btn-get-user-info" bindgetuserinfo="onGotUserInfo" data-type="2" open-type="getUserInfo">授权</button>
+        <image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/write.png"></image>
+        <text>手动输入护照信息</text>
+    </view>
+</view>

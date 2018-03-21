@@ -1,0 +1,86 @@
+var util=require('../../utils/util');
+var app=getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    passportList:[]
+  },
+  onPullDownRefresh: function(){
+      wx.stopPullDownRefresh()
+  },
+  toPort:function(ev){
+      const newsId = ev.currentTarget.dataset.id;
+      wx.navigateTo({
+          url: `../passport/passport?id=${newsId}`
+      })
+  },
+  toAdd:function(){
+      wx.showModal({
+          title: app.globalData.authToken+'=>'+app.globalData.hasPhone,
+          success: function(res){
+              if (res.confirm) {
+
+              }
+          }
+      });
+      if(!app.globalData.authToken) return;
+      if(app.hasPhone()){
+          wx.navigateTo({
+              url: '../addpassport/addpassport'
+          })
+      }else{
+          wx.navigateTo({
+              url: '../login/login'
+          })
+      }
+  },
+  del:function(ev){
+      var url=app.globalData.huoLiBase+'delPassport';
+      var huId = ev.currentTarget.dataset.id;
+      var index=ev.currentTarget.dataset.index;
+      var authToken=app.globalData.authToken;
+      var that=this;
+      wx.showModal({
+          title: '是否删除护照',
+          success: function(res){
+              if (res.confirm) {
+                  util.http(url,{huId:huId,authToken:authToken},function(){
+                     var list=that.data.passportList;
+                     list.splice(index,1);
+                     that.setData({
+                         passportList:list
+                     })
+                  })
+              } else if (res.cancel) {
+
+              }
+          }
+      })
+  },
+  formatList:function(list){
+      for(var i=0;i<list.length;i++){
+          var item=list[i];
+          item.lastTime=util.matchTime(item.huExpireTime,1);
+          item.huExpireTime=util.toDate(item.huExpireTime);
+      }
+      return list;
+  },
+  getList:function(){
+      var url=app.globalData.huoLiBase+'getPassPort';
+      var authToken=app.globalData.authToken;
+      var that=this;
+      util.http(url,{authToken:authToken},function(data){
+          that.setData({
+              passportList:that.formatList(data.object)
+          })
+      })
+  },
+  onLoad: function (options) {
+      app.login();
+      this.getList();
+  }
+
+});

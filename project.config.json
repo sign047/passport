@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.1",
 	"appid": "wx5082e42d7964fdf2",
-	"projectname": "%E6%8A%A4%E7%85%A7%E7%AE%A1%E5%AE%B6",
+	"projectname": "%E6%8A%A4%E7%85%A7demo",
 	"condition": {
 		"search": {
 			"current": -1,

@@ -1,0 +1,107 @@
+var util = require('../../utils/util');
+var wxApi = require('../../utils/wxApi');
+var wxRequest = require('../../utils/wxRequest');
+var app = getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+     hideCard:false,
+     visaFiles:[]
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+  hideCard() {
+    this.setData({
+        hideCard:true
+    })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+      this.isNeedSynchronize();
+  },
+  toEditFile(e) {
+      let file = e.currentTarget.dataset.file;
+      file.moveStep = file.step;
+      app.globalData.currentFile = file;
+      wx.navigateTo({
+         url: `../visaFiles/visaFiles`
+      })
+  },
+  getVisaFiles(authToken) {
+    const that =this;
+        const url = app.globalData.httpBase+'/hzgjVisaFile/getVisaVF';
+      util.http(url,{authToken},function(res){
+         const visaFiles = res.object;
+         that.setData({
+             visaFiles
+         })
+      })
+  },
+  saveVisaFile(authToken) {
+    const that = this;
+    const url = app.globalData.httpBase+'/hzgjVisaFile/saveVisaFile'
+      util.http(url,{authToken},function(res){
+           if(res.code == 200) {
+               that.getVisaFiles(authToken)
+           }
+      })
+  },
+  isNeedSynchronize() {
+     const that = this;
+      const url = app.globalData.httpBase+'/hzgjVisaFile/isNeedSynchronize';
+      const authToken=app.globalData.authToken;
+      util.http(url,{authToken},function(res){
+         const flag = res.object.isNeedSynchronize;
+         if(flag) {
+            that.saveVisaFile(authToken)
+         }else{
+            that.getVisaFiles(authToken)
+         }
+      })
+  },
+  toNewFile() {
+      app.globalData.currentFile = {
+          accountBookStatus: null,
+          applicationStatus: null,
+          headStatus: null,
+          id: -1,
+          idCardStatus: 0,
+          marriageStatus: null,
+          propertyStatus: null,
+          step:1,
+          moveStep:0,
+          visaFileDesc: "",
+          visaFileName: "",
+          visaFileUserName: null
+      }
+      app.globalData.application = {
+          basicStatus: 0,
+          contactStatus: 0,
+          familyStatus: 0,
+          humessageStatus: 0,
+          id: '',
+          vfId: ''
+      }
+      wx.navigateTo({
+          url: `../visaFiles/visaFiles?isNew=true`
+      })
+  }
+
+})

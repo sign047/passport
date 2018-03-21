@@ -1,0 +1,104 @@
+<view class="vertical box">
+    <swiper class="swiper"
+            indicator-dots="{{true}}"
+            autoplay="{{true}}"
+            interval="{{2000}}"
+            circular="{{true}}"
+            duration="{{500}}">
+        <block wx:for="{{imgUrls}}" wx:for-index="index" wx:key="{{index}}">
+            <swiper-item>
+                <image  src="{{item.img}}" class="slide-image"/>
+                <text class="item-txt">{{item.txt}}</text>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="scroll-view" scroll-y="{{true}}">
+        <view class="scroll align">
+            <view class="passport-item"  wx:if="{{passportList.length == 0}}">
+                <button class="btn-get-user-info" bindgetuserinfo="onGotUserInfo"  open-type="getUserInfo">授权</button>
+                <view class="flexbox align-normal viebox">
+                    <image class="leftimg" src="/images/boy1.png"></image>
+                    <view class="right">
+                        <view class="flex justify-normal">
+                            <view class="info-name flexbox">
+                                <text>姓名</text>
+                            </view>
+                            <text class="info-new ">伙力</text>
+                        </view>
+                        <view class="flex justify-normal center">
+                            <view class="info-name flexbox">
+                                <text>护照号码</text>
+                            </view>
+                            <text class="info-new">E23456789</text>
+                        </view>
+                        <view class="flex justify-normal">
+                            <view class="info-name flexbox">
+                                <text>有效期至</text>
+                            </view>
+                            <text class="info-new">剩余2025年05月12日</text>
+                        </view>
+
+                    </view>
+                </view>
+                <view class="flexbox between">
+                    <view class="flexbox">
+                        <image class="loc-icon" src="/images/location.png"></image>
+                        <text class="city">签发地：北京</text>
+                    </view>
+                    <view class="time">
+                        <text>8年3月20天</text>
+                    </view>
+                </view>
+            </view>
+            <view class="passport-item"
+                  catchtap="toPort"
+                  bindtouchstart="setTapStartTime"
+                  catchlongpress="del"
+                  data-id="{{passport.id}}"
+                  data-index="{{idx}}"
+                  wx:for="{{passportList}}"
+                  wx:for-index="idx"
+                  wx:for-item="passport"
+                  wx:key="idx"
+                  wx:if="{{passportList.length > 0}}">
+                <view class="flexbox  viebox">
+                    <image class="leftimg"
+                           src="{{passport.huSex == '男' ? '/images/boy1.png':'/images/girl2.png'}}">
+                    </image>
+                    <view class="right">
+                        <view class="flex justify-normal">
+                            <view class="info-name flexbox">
+                                <text>姓名</text>
+                            </view>
+                            <text class="info-new">{{passport.huName}}</text>
+                        </view>
+                        <view class="flex justify-normal center">
+                            <view class="info-name flexbox">
+                                <text>护照号码</text>
+                            </view>
+                            <text class="info-new">{{passport.huNumber}}</text>
+                        </view>
+                        <view class="flex justify-normal">
+                            <view class="info-name flexbox">
+                                <text>有效期至</text>
+                            </view>
+                            <text class="info-new">{{passport.huExpireTime}}</text>
+                        </view>
+
+                    </view>
+                </view>
+                <view class="flexbox between">
+                    <view class="flexbox">
+                        <image class="loc-icon" src="/images/location.png"></image>
+                        <text class="city">签发地：{{passport.huIssueplace}}</text>
+                    </view>
+                    <view class="time">
+                        <text>{{passport.lastTime}}</text>
+                    </view>
+                </view>
+                <view class="visaTip1" wx:if="{{passport.visaCount <= 0}}">未添加签证</view>
+                <view class="visaTip2" wx:if="{{passport.visaCount >= 1}}">已添加签证({{passport.visaCount}})</view>
+            </view>
+        </view>
+    </view>
+</view>

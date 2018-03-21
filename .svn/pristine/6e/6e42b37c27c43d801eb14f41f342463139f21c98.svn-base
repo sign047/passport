@@ -1,0 +1,269 @@
+var util=require('../../utils/util');
+var app=getApp();
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        sex:['男','女'],
+        sexIndex:0,
+        tabArr:['我','配偶','孩子','父母','亲戚','朋友'],
+        huBoth:'请选择你的出生年月',
+        huCreateTime:'请选择你的护照签发日期',
+        huExpireTime:'请选择你的护照有效期',
+        isScanning:false,
+        isEdit:false,
+        showTopTips:false,
+        errTxt:'',
+        sendPass:{},
+        passport:{
+            huNumber:'',
+            huName:'',
+            huPinYin:'',
+            huSex:'',
+            huBoth:'请选择你的出生年月',
+            huIssuePlace:'',
+            huCreateTime:'请选择你的护照签发日期',
+            huExpireTime:'请选择你的护照有效期',
+            huTag:'我'
+        }
+    },
+    onLoad: function (options) {
+        var data=this.data;
+        if(options.isScanning === 'true' || options.isScanning !== undefined ||
+            options.passport !== undefined||options.isEdit === 'true'
+            || options.isEdit !== undefined){
+
+            var list=JSON.parse(options.passport);
+            console.log(list);
+            var lastTime = util.matchTime(list.huExpireTime, 1);
+            var huExpireTime = util.toDate(list.huExpireTime);
+            var huCreateTime = util.toDate(list.huCreateTime);
+            var huBoth = util.toDate(list.huBoth);
+
+            console.log(huExpireTime);
+            var sendPass={};
+            if(options.isScanning === 'true' ){
+                sendPass=JSON.parse(options.passport);
+                sendPass =Object.assign(sendPass,{
+                    'huExpireTime':util.toDate3(sendPass.huExpireTime),
+                    'huCreateTime':util.toDate3(sendPass.huCreateTime),
+                    'huBoth'      :util.toDate3(sendPass.huBoth),
+                    'huIssuePlace':sendPass.huIssueplace
+                });
+                console.log(sendPass);
+            }
+            if(options.isEdit === 'true'){
+                sendPass=JSON.parse(options.passport);
+                huExpireTime=util.toDate4(list.huExpireTime);
+                huCreateTime=util.toDate4(list.huCreateTime);
+                huBoth=util.toDate4(list.huBoth);
+            }
+            var pass=Object.assign({},list,{huExpireTime,huCreateTime,huBoth});
+            if(pass.huIssueplace){
+                pass.huIssuePlace=pass.huIssueplace;
+            }
+            var index=pass.huSex === '男'? 0 :1;
+            var sex=data.sex[index];
+            this.setData({
+                passport: pass,
+                huExpireTime: huExpireTime,
+                huCreateTime: huCreateTime,
+                huBoth: huBoth,
+                sexIndex:index,
+                sendPass:sendPass,
+                huSex: list.huSex,
+                lastTime: lastTime,
+                isEdit:options.isEdit,
+                isScanning:options.isScanning
+            })
+        }
+        this.setval('huSex',sex);
+    },
+    bindCity:function(e){
+        var value=util.trim(e.detail.value);
+        this.setval('huIssuePlace',value);
+    },
+    bindName:function(e){
+        var kind= e.currentTarget.dataset.kind;
+        var value=util.trim(e.detail.value);
+        this.setval('huName',value);
+        return {
+            value:value
+        }
+    },
+    bindNum:function(e){
+        var kind= e.currentTarget.dataset.kind;
+        var value=util.trim(e.detail.value.toUpperCase());
+        if(kind === '1'){
+            this.setval('huNumber',value);
+        }else if(kind === '2'){
+            this.setval('huPinYin',value);
+        }
+
+        return {
+            value:value
+        }
+    },
+    bindDateChange: function(e) {
+        var val=e.detail.value.split('-');
+        var time=`${val[0]}年${val[1]}月${val[2]}日`;
+        var value=e.detail.value;
+        var kind= e.currentTarget.dataset.kind;
+        var passport=this.data.passport;
+        switch(kind){
+            case '1':
+                this.setval('huBoth',value);
+                this.setData({
+                    huBoth:time
+                });
+                break;
+            case '2':
+                this.setval('huCreateTime',value);
+                this.setData({
+                    huCreateTime:time
+                });
+                break;
+            case '3':
+                this.setval('huExpireTime',value);
+                this.setData({
+                    huExpireTime:time
+                });
+                break;
+        }
+
+    },
+    setval:function(name,val){
+        var passport=this.data.passport;
+        var sendPass=this.data.sendPass;
+        passport[name]=val;
+        sendPass[name]=val;
+        this.setData({
+            passport:passport,
+            sendPass:sendPass
+        })
+    },
+    bindSexChange: function(e) {
+        this.setData({
+            sexIndex: e.detail.value
+        });
+        var data=this.data;
+        var sex=data.sex[data.sexIndex];
+        this.setval('huSex',sex);
+    },
+    radioChange: function(e) {
+        var value=e.detail.value;
+        this.setval('huTag',value);
+
+    },
+    //保存编辑
+    saveEdit:function(){
+        console.log(this.data.sendPass);
+        console.log(this.data.passport);
+        var send=this.data.sendPass,
+            url=app.globalData.huoLiBase+'updatePassPort',
+            authToken=app.globalData.authToken,
+            hId=send.id;
+        var data={
+            authToken:authToken,
+            huName:send.huName,
+            huPinYin:send.huPinYin,
+            huIssueplace:send.huIssueplace,
+            huSex:send.huSex,
+            huCreateTime:send.huCreateTime,
+            huExpireTime:send.huExpireTime,
+            huBoth:send.huBoth,
+            hId:hId};
+        var err=util.check(send);
+        if(!err.isCheck){
+            this.showTopTips(err.errmsg);
+            return;
+        }
+        util.http(url,data,function(){
+            wx.redirectTo({
+                url: '../passport/passport?id='+hId
+            })
+        });
+    },
+    //保存扫描
+    saveScan:function(){
+        var that=this;
+        wx.showModal({
+            title: '',
+            content:'信息核对无误,确认提交',
+            success: function (res) {
+                if (res.confirm) {
+                    that.savePass();
+                } else if (res.cancel) {
+
+                }
+            }
+        })
+    },
+    showTopTips: function(errmsg){
+        var that = this;
+        this.setData({
+            showTopTips: true,
+            errTxt:errmsg
+        });
+        setTimeout(function(){
+            that.setData({
+                showTopTips: false
+            });
+        }, 3000);
+    },
+    //保存护照
+    savePass:function(){
+        var url=app.globalData.huoLiBase+'savePassPort';
+        var data=this.data;
+        var passport=data.passport;
+        if(data.isScanning === 'true' || data.isEdit === 'true'){
+            passport=data.sendPass;
+        }
+
+        var authToken=app.globalData.authToken;
+        passport.authToken=authToken;
+        var err=util.check(passport);
+        if(!err.isCheck){
+            this.showTopTips(err.errmsg);
+            return;
+        }
+        util.http(url,passport,function(data){
+            var code = data.object;
+            if (code == -1) {
+                app.showModel({
+                    title: '此护照号码已存在',
+                    showCancel: false,
+                    success: function (res) {
+                        if (res.confirm) {
+                            return false;
+                        } else if (res.cancel) {
+                        }
+                    }
+                });
+            } else {
+                wx.showToast({
+                    title: '保存成功',
+                    icon: 'success',
+                    duration: 2000,
+                    complete:function(){
+                        if (!app.hasPhone()) {
+                            wx.redirectTo({
+                                url:`../login/login?id=${data.object}`
+                            });
+                        }else{
+                            wx.redirectTo({
+                                url: `../passport/passport?id=${data.object}`
+                            });
+                        }
+                    }
+                });
+
+                // wx.switchTab({
+                //     url: `../passportList/passportList?id=${data.object}`
+                // })
+            }
+        });
+    }
+});

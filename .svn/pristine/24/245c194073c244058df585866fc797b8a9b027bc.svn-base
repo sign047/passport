@@ -1,0 +1,4 @@
+<view class="vertical">
+    <text class="btn medium photo-btn" catchtap="toPhoto">拍照上传</text>
+    <text class="btn medium " catchtap="toWrite">手动输入</text>
+</view>

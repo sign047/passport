@@ -1,0 +1,9 @@
+
+<view class="expiry">
+    <view class="align editform middle">
+        <view class="flexbox p">
+            <text class="label">签发地</text><input bindinput="bindCity" class="box" placeholder="{{cityPlace}}" />
+        </view>
+    </view>
+    <view class="btn medium saveBtn" catchtap="topassport">保存</view>
+</view>

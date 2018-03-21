@@ -1,0 +1,195 @@
+function http(url, data, callBack) {
+    showLoad();
+    wx.request({
+        url: url,
+        method: 'GET',
+        data: data,
+        header: {
+            'content-type': 'application/json'
+        },
+        success: function (res) {
+            var data = res.data;
+
+            if (res.statusCode != 200) {
+                hideLoad();
+                return;
+            }
+            if (data.code == 200) {
+                hideLoad();
+                callBack(data);
+            } else {
+                hideLoad();
+            }
+        },
+        fail: function (err) {
+            hideLoad();
+            showModel({title:'数据获取失败',content:'请检查网络后刷新！',showCancel:false});
+        }
+    })
+}
+
+function showLoad() {
+    wx.showLoading({
+        title: '加载中',
+        mask: true
+    })
+}
+
+function hideLoad() {
+    wx.hideLoading();
+}
+
+function showToast() {
+    wx.showToast({
+        title: '成功',
+        icon: 'success',
+        duration: 1000
+    })
+}
+
+function toDate(time) {
+    var str = new Date(time).toLocaleDateString(),
+        strArr = str.split('/');
+    return `${strArr[0]}年${zero(strArr[1])}月${zero(strArr[2])}日`;
+}
+
+function toDate2(time) {
+    var str = new Date(time).toLocaleDateString(),
+        strArr = str.split('/');
+
+    return `${strArr[0]}.${strArr[1]}.${strArr[2]}`;
+}
+function toDate3(time) {
+    var str=new Date(time);
+    var year=str.getFullYear();
+    var month=str.getMonth()+1;
+    var day=str.getDay();
+    return `${year}-${month}-${day}`;
+}
+function showModel(json) {
+    wx.showModal({
+        title: json.title ? json.title : '',
+        content: json.content ? json.content : '',
+        showCancel: json.showCancel ? json.showCancel : true,
+        success: function (res) {
+            if (res.confirm) {
+                json.confirm && json.confirm()
+            } else if (res.cancel) {
+                json.cancel && json.cancel()
+            }
+        }
+    })
+}
+
+function matchTime(str1, kind) {
+    var n1 = str1;
+    var n2 = new Date().getTime();
+    if (n1 - n2 <=0) {
+        if (kind == 1) {
+            return '护照已过期'
+        }
+        if (kind == 2) {
+            return '签证已过期'
+        }
+    }
+    else {
+        var expire = n1 - n2;
+        return formatTime(expire);
+    }
+}
+function matchTime2(str1) {
+    var n1 = Date.parse(new Date(str1));
+    console.log(n1);
+    var n2 = new Date().getTime();
+    if (n1 - n2 <=0) {
+        return '护照已过期'
+    }
+    else {
+        var expire = n1 - n2;
+        return formatTime(expire);
+    }
+}
+function setTitle(title) {
+    wx.showNavigationBarLoading();
+    wx.setNavigationBarTitle({
+        title: title,
+        success: function () {
+            wx.hideNavigationBarLoading();
+        },
+        complete: function () {
+            wx.hideNavigationBarLoading();
+        }
+    })
+}
+
+function formatTime(time) {
+    time = Math.floor(time / 1000);
+    var ds = 86400;
+    var ms = 86400 * 365 / 12;
+    var ys = 86400 * 365;
+    var year = Math.floor(time / ys);
+    time = time % ys;
+    var month = Math.floor(time / ms);
+    time = time % ms;
+    var day = Math.floor(time / ds);
+    if(year ==0 && month==0 && day==0){
+        return '剩余1天过期'
+    }
+    return `剩余${year}年${month}月${day}天`;
+}
+function zero(s){
+    return s<10 ? '0'+s : s+'';
+}
+var pass = [{name: 'huNumber', errmsg: '请填写护照号码'}, {name: 'huName', errmsg: '请填写姓名'},
+    {name: 'huPinYin', errmsg: '请填写姓名拼音'}, {name: 'huSex', errmsg: '请填写性别'},
+    {name: 'huBoth', errmsg: '请选择出生日期'},{name:'huIssueplace', errmsg: '请选择签发地点'},{name:'huIssuePlace', errmsg: '请选择签发地点'},
+    {name: 'huCreateTime', errmsg: '请选择签发时间'}, {name: 'huExpireTime', errmsg: '请选择到期时间'}];
+
+function check(json) {
+    for (var i = 0, len = pass.length; i < len; i++) {
+        var err = pass[i];
+        for (var name in json) {
+            if (name == err['name']) {
+                if (!json[name] || json[name].legnth == 0 ||
+                    json[name] == '请选择你的出生年月' ||
+                    json[name] == '请选择你的护照签发日期' || json[name] == '请选择你的护照有效期' ||json[name] == '请输入你的护照签发地') {
+                    showModel({title: err.errmsg, showCancel: false});
+                    return false;
+                }
+            }
+        }
+    }
+    return true
+}
+
+function checkVisa(arr) {
+    if (!arr) return;
+    if (arr.length > 0) {
+        for (var i=0,len = arr.length; i < len; i++) {
+            var item=arr[i];
+            if (!item.createTime || item.createTime == '请选择签证签发时间') {
+                showModel({title: `请选择${item.visaName}签证签发时间`, showCancel: false});
+                return false;
+            }
+            if (!item.expireTime || item.expireTime == '请选择签证到期时间') {
+                showModel({title: `请选择${item.visaName}签证到期时间`, showCancel: false});
+                return false;
+            }
+        }
+        return true;
+    } else {
+        return false;
+    }
+}
+
+module.exports = {
+    http: http,
+    matchTime: matchTime,
+    matchTime2:matchTime2,
+    toDate: toDate,
+    toDate2: toDate2,
+    toDate3:toDate3,
+    setTitle: setTitle,
+    check: check,
+    checkVisa: checkVisa
+};

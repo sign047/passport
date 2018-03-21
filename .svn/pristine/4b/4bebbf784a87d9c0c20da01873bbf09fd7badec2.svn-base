@@ -1,0 +1,220 @@
+function http(url,data,callBack,fail) {
+    showLoad();
+    wx.request({
+        url: url,
+        method: 'GET',
+        data: data,
+        header: {
+            'content-type': 'application/json'
+        },
+        success: function (res) {
+            var data = res.data;
+            if (res.statusCode >= 400) {
+                hideLoad();
+                showModel({content:'服务器出错了,请下拉刷新重试',showCancel:false});
+                return;
+            }
+            if (data.code == 200) {
+                hideLoad();
+                callBack&&callBack(data);
+            } else {
+                fail&&fail(data);
+                hideLoad();
+            }
+        },
+        fail: function (err) {
+            hideLoad();
+            showModel({title: '数据获取失败', content: '请检查网络后刷新！', showCancel: false});
+        }
+    })
+}
+
+function showLoad() {
+    wx.showLoading({
+        title: '加载中',
+        mask: true
+    })
+}
+
+function hideLoad() {
+    wx.hideLoading();
+}
+
+function showToast() {
+    wx.showToast({
+        title: '成功',
+        icon: 'success',
+        duration: 1000
+    })
+}
+
+function toDate(time) {
+    var str = new Date(time).toLocaleDateString(),
+        strArr = str.split('/');
+    return `${strArr[0]}年${zero(strArr[1])}月${zero(strArr[2])}日`;
+}
+
+function toDate2(time) {
+    var str = new Date(time).toLocaleDateString(),
+        strArr = str.split('/');
+
+    return `${strArr[0]}.${strArr[1]}.${strArr[2]}`;
+}
+
+function toDate3(time) {
+    var str = new Date(time).toLocaleDateString(),
+        strArr = str.split('/');
+    return `${strArr[0]}-${strArr[1]}-${strArr[2]}`;
+}
+
+function toDate4(time){
+    var strArr = time.split('-');
+    return `${strArr[0]}年${zero(strArr[1])}月${zero(strArr[2])}日`;
+}
+function showModel(json) {
+    wx.showModal({
+        title: json.title ? json.title : '',
+        content: json.content ? json.content : '',
+        showCancel: json.showCancel ? json.showCancel : false,
+        success: function (res) {
+            if (res.confirm) {
+                json.confirm && json.confirm()
+            } else if (res.cancel) {
+                json.cancel && json.cancel()
+            }
+        }
+    })
+}
+
+function matchTime(str1, kind) {
+    var n1 = str1;
+    var n2 = new Date().getTime();
+    if (n1 - n2 <= 0) {
+        if (kind == 1) {
+            return '护照已过期'
+        }
+        if (kind == 2) {
+            return '签证已过期'
+        }
+    }
+    else {
+        var expire = n1 - n2;
+        return formatTime(expire);
+    }
+}
+
+function matchTime2(str1) {
+    var n1 = Date.parse(new Date(str1));
+    var n2 = new Date().getTime();
+    if (n1 - n2 <= 0) {
+        return '护照已过期'
+    }
+    else {
+        var expire = n1 - n2;
+        return formatTime(expire);
+    }
+}
+
+function setTitle(title) {
+    wx.showNavigationBarLoading();
+    wx.setNavigationBarTitle({
+        title: title,
+        success: function () {
+            wx.hideNavigationBarLoading();
+        },
+        complete: function () {
+            wx.hideNavigationBarLoading();
+        }
+    })
+}
+
+function formatTime(time) {
+    time = Math.floor(time / 1000);
+    var ds = 86400;
+    var ms = 86400 * 365 / 12;
+    var ys = 86400 * 365;
+    var year = Math.floor(time / ys);
+    time = time % ys;
+    var month = Math.floor(time / ms);
+    time = time % ms;
+    var day = Math.floor(time / ds);
+    if (year == 0 && month == 0 && day == 0) {
+        return '剩余1天过期'
+    }
+    return `剩余${year}年${month}月${day}天`;
+}
+
+function zero(s) {
+    return s < 10 ? '0' + s : s + '';
+}
+
+function trim(str){
+    var re = /\s+/g;
+    return str.replace(re,'');
+}
+var pass = [
+    {name: 'huNumber',errmsg: '请填写护照号码',baseTxt:'',regTit:'护照号码格式错误',regErrTxt:'请输入正确的护照号码,中国护照号共9个字符,以G、P、S、D、E、Ea开头，后面为阿拉伯数字',regExp: /^((EA)\d{7})|([E|P|S|G|D]\d{8})$/},
+    {name: 'huName',errmsg: '请填写姓名',regErrTxt:'请输入正确的中文姓名',baseTxt:'',regExp:/^([\u4E00-\u9FA5])*$/},
+    {name: 'huPinYin',errmsg: '请填写姓名拼音',baseTxt:''},
+    {name: 'huSex', errmsg: '请填写性别',baseTxt:''},
+    {name: 'huBoth', errmsg: '请选择出生日期', baseTxt: '请选择你的出生年月'},
+    {name: 'huIssueplace', errmsg: '请选择签发地点',baseTxt:'请输入你的护照签发地'},
+    {name: 'huIssuePlace', errmsg: '请选择签发地点',baseTxt:'请输入你的护照签发地'},
+    {name: 'huCreateTime', errmsg: '请选择签发时间',baseTxt:'请选择你的护照签发日期'},
+    {name: 'huExpireTime', errmsg: '请选择到期时间',baseTxt:'请选择你的护照有效期'}];
+
+function check(json) {
+    for (var i = 0, len = pass.length; i < len; i++) {
+        var err = pass[i];
+        for (var name in json) {
+            if (name == err['name']) {
+                if (!json[name] || json[name].length === 0 || json[name] === json['baseTxt']) {
+                    // showModel({title: err.errmsg, showCancel: false});
+                    return {isCheck:false,errmsg:err.errmsg};
+                }else{
+                   var regTit=err.regTit ?err.regTit:'';
+                   if(err['regExp'] !== undefined && !err['regExp'].test(json[name])){
+                       // showModel({title:regTit,content: err.regErrTxt, showCancel: false});
+                       return {isCheck:false,errmsg:err.regErrTxt};
+                   }
+                }
+            }
+        }
+    }
+    return {isCheck:true}
+}
+
+function checkVisa(arr) {
+    if (!arr) return;
+    if (arr.length > 0) {
+        for (var i = 0, len = arr.length; i < len; i++) {
+            var item = arr[i];
+            if (!item.createTime || item.createTime == '请选择签证签发时间') {
+                showModel({title: `请选择${item.visaName}签证签发时间`, showCancel: false});
+                return false;
+            }
+            if (!item.expireTime || item.expireTime == '请选择签证到期时间') {
+                showModel({title: `请选择${item.visaName}签证到期时间`, showCancel: false});
+                return false;
+            }
+        }
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+module.exports = {
+    http: http,
+    matchTime: matchTime,
+    matchTime2: matchTime2,
+    toDate: toDate,
+    toDate2: toDate2,
+    toDate3: toDate3,
+    toDate4:toDate4,
+    setTitle: setTitle,
+    check: check,
+    trim:trim,
+    checkVisa: checkVisa
+};

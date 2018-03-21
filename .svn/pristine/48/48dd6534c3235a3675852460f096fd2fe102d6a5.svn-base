@@ -1,0 +1,75 @@
+@import "../../template/form/form.wxss";
+page{
+  background:#f0f0f0;
+}
+.addport{
+  padding-bottom:18rpx;
+}
+.saveBtn{
+  background:#485465;
+  border-radius:20rpx;
+  text-align:center;
+  color:#fff;
+  padding:26rpx 0;
+  display:block;
+  width:666rpx;
+  margin:96rpx auto 0;
+}
+.tiptext{
+  color:#485465;
+  font-size:22rpx;
+  display:block;
+  text-align:center;
+
+}
+.tabtit{
+  color:#485465;
+  font-size:30rpx;
+  margin-bottom:44rpx;
+  padding-left:14rpx;
+  padding-top:30rpx;
+}
+.tab{
+  display:block;
+  color:#cfcfcf;
+  border:1rpx solid #cfcfcf;
+  padding:6rpx 0;
+  width:120rpx;
+  text-align:center;
+  margin-bottom:30rpx;
+  border-radius:4rpx;
+}
+.tab:nth-child(3n+2){
+  margin:0 56rpx 30rpx;
+}
+.active{
+  color:#3b48ed;
+  border-color:#3b48ed;
+}
+.radio-item{
+  padding:0 120rpx 0 104rpx;
+}
+.place{
+  color:#c2c2c2 !important;
+}
+.middle{
+  margin:32rpx 0 0 0 !important;
+}
+.weui-toptips {
+  position:fixed;
+  -webkit-transform:translateZ(0);
+  transform:translateZ(0);
+  top:0;
+  left:0;
+  right:0;
+  padding:5px;
+  font-size:14px;
+  text-align:center;
+  color:#fff;
+  z-index:5000;
+  word-wrap:break-word;
+  word-break:break-all;
+}
+.weui-toptips_warn {
+  background-color:#e64340;
+}

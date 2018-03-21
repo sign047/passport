@@ -1,0 +1,5 @@
+<view class="vertical">
+    <image class="demo" src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/demopass.png"></image>
+    <text class="tips">*拍摄如图示的护照首页，露出四个边角，清晰拍摄不反光</text>
+    <view class="btn medium next" catchtap="showAction">下一步</view>
+</view>

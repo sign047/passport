@@ -1,0 +1,10 @@
+<view class="vertical">
+    <view catchtap="toPhoto" class="camera">
+        <image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/photo.png"></image>
+        <text>拍摄护照首页快速上传</text>
+    </view>
+    <view catchtap="toWrite" class="camera">
+        <image src="http://7xj7u1.com1.z0.glb.clouddn.com/passport/write.png"></image>
+        <text>手动输入护照信息</text>
+    </view>
+</view>

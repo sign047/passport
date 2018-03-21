@@ -1,0 +1,27 @@
+/* pages/pic/pic.wxss */
+
+page{
+  background:#f0f0f0;
+}
+.camera{
+  height:344rpx;
+  width:680rpx;
+  position:relative;
+  margin-top:62rpx;
+}
+.camera image{
+  display:block;
+  width:100%;
+  height:100%;
+}
+.camera text{
+  display:block;
+  position:absolute;
+  width:100%;
+  text-align:center;
+  left:50%;
+  bottom:56rpx;
+  transform:translatex(-50%);
+  color:#fff;
+  font-size:40rpx;
+}
